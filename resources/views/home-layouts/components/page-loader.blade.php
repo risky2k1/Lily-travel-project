@@ -17,5 +17,5 @@
         </div>
     </div>
 
-    <div class="preloader__title">GoTrip</div>
+    <div class="preloader__title">Lily Travel</div>
 </div>
