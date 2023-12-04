@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/test',function (){
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+});
+
+
+Route::get('/test', function () {
     return view('home-auth.login');
 });
 
