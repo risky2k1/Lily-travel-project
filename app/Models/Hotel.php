@@ -11,6 +11,17 @@ class Hotel extends Model
 {
     use HasFactory;
     use HasStates;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'content',
+        'is_feature',
+        'author',
+        'state',
+        'map',
+        'address',
+    ];
     protected $casts = [
         'state' => HotelState::class,
     ];

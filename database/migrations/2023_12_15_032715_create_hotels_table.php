@@ -14,21 +14,22 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('author')->constrained('user');
-            
+            $table->foreignId('author')->constrained('users');
+
 
             $table->string('state');
 
+            $table->string('name');
             $table->text('description')->comment('Mô tả');
             $table->longText('content')->comment('Nội dung');
-            $table->text('map');
-            $table->string('address');
-            $table->decimal('price');
+            $table->text('map')->nullable();
+            $table->string('address')->nullable();
+            $table->decimal('price')->nullable();
 
-            $table->string('checkin_time');
-            $table->string('checkout_time');
+            $table->string('checkin_time')->nullable();
+            $table->string('checkout_time')->nullable();
 
-            $table->boolean('is_feature');
+            $table->boolean('is_feature')->nullable();
 
             $table->integer('max_guests')->nullable()->default(0);
 

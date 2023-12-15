@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\States\HotelState\Pending;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HotelController extends Controller
 {
@@ -20,7 +22,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.layouts.hotel.create');
     }
 
     /**
@@ -28,7 +30,22 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['string', 'required'],
+            'description' => ['string', 'required'],
+            'content' => ['string', 'required'],
+            'is_feature' => ['nullable'],
+        ]);
+        $hotel = Hotel::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'content' => $request->input('content'),
+            'is_feature' => $request->input('is_feature'),
+            'author' => Auth::id(),
+            'state' => Pending::class,
+        ]);
+
+        return redirect()->route('admin.hotel.edit', $hotel);
     }
 
     /**
@@ -44,7 +61,7 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        //
+        return view('admin.layouts.hotel.edit', compact('hotel'));
     }
 
     /**
@@ -52,7 +69,25 @@ class HotelController extends Controller
      */
     public function update(Request $request, Hotel $hotel)
     {
-        //
+        $request->validate([
+            'name' => ['string', 'required'],
+            'description' => ['string', 'required'],
+            'content' => ['string', 'required'],
+            'is_feature' => ['nullable'],
+            'map' => ['nullable'],
+            'address' => ['nullable'],
+        ]);
+        $hotel->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'content' => $request->input('content'),
+            'is_feature' => $request->input('is_feature'),
+            'map' => $request->input('map'),
+            'address' => $request->input('address'),
+        ]);
+
+        return redirect()->route('admin.index');
+
     }
 
     /**
