@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,15 @@ Route::middleware('auth')->group(function () {
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::prefix('hotel')->group(function () {
+
+        Route::get('/create', [HotelController::class, 'create'])->name('admin.hotel.create');
+        Route::post('/', [HotelController::class, 'store'])->name('admin.hotel.store');
+        Route::get('/{hotel}', [HotelController::class, 'edit'])->name('admin.hotel.edit');
+        Route::patch('/{hotel}', [HotelController::class, 'update'])->name('admin.hotel.update');
+
+    });
 });
 
 
@@ -39,4 +49,4 @@ Route::get('/test', function () {
     return view('home-auth.login');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

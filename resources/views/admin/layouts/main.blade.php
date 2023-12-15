@@ -14,7 +14,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{asset('css/vendors.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
-
+    @stack('css')
     <title>GoTrip</title>
 </head>
 
@@ -720,15 +720,15 @@
             <div class="sidebar__item ">
 
 
-                <a href="db-dashboard.html" class="sidebar__button d-flex items-center text-15 lh-1 fw-500">
-                    <img src="img/dashboard/sidebar/compass.svg" alt="image" class="mr-15">
+                <a href="{{route('admin.index')}}" class="sidebar__button d-flex items-center text-15 lh-1 fw-500">
+                    <img src="{{asset('img/dashboard/sidebar/compass.svg')}}" alt="image" class="mr-15">
                     Dashboard
                 </a>
 
 
             </div>
 
-            <div class="sidebar__item ">
+            {{-- <div class="sidebar__item ">
 
 
                 <a href="#" class="sidebar__button d-flex items-center text-15 lh-1 fw-500">
@@ -737,7 +737,7 @@
                 </a>
 
 
-            </div>
+            </div> --}}
 
             <div class="sidebar__item ">
 
@@ -747,7 +747,7 @@
                         <div class="accordion__button">
                             <div class="sidebar__button col-12 d-flex items-center justify-between">
                                 <div class="d-flex items-center text-15 lh-1 fw-500">
-                                    <img src="img/dashboard/sidebar/hotel.svg" alt="image" class="mr-10">
+                                    <img src="{{asset('img/dashboard/sidebar/hotel.svg')}}" alt="image" class="mr-10">
                                     Manage Hotel
                                 </div>
                                 <div class="icon-chevron-sm-down text-7"></div>
@@ -762,7 +762,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#" class="text-15">Add Hotel</a>
+                                    <a href="{{route('admin.hotel.create')}}" class="text-15">Add Hotel</a>
                                 </li>
 
                                 <li>
@@ -777,7 +777,7 @@
 
             </div>
 
-            <div class="sidebar__item ">
+            {{-- <div class="sidebar__item ">
 
 
                 <div class="accordion -db-sidebar js-accordion">
@@ -1014,7 +1014,7 @@
                 </a>
 
 
-            </div>
+            </div> --}}
 
         </div>
 
@@ -1022,6 +1022,7 @@
 
     <div class="dashboard__main">
         <div class="dashboard__content bg-light-2">
+            {{-- BreadcRumb --}}
             <div class="row y-gap-20 justify-between items-end pb-60 lg:pb-40 md:pb-32">
                 <div class="col-auto">
 
@@ -1034,9 +1035,9 @@
 
                 </div>
             </div>
+            {{-- End breadcrumb --}}
 
-
-            <div class="row y-gap-30">
+            {{-- <div class="row y-gap-30">
 
                 <div class="col-xl-3 col-md-6">
                     <div class="py-30 px-30 rounded-4 bg-white shadow-3">
@@ -1229,8 +1230,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
+            @yield('content')
 
             <footer class="footer -dashboard mt-60">
                 <div class="footer__row row y-gap-10 items-center justify-between">
@@ -1276,6 +1278,10 @@
 
 <script src="{{asset('js/vendors.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+@stack('js')
 </body>
 
 </html>
