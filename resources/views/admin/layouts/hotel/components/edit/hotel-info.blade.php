@@ -6,7 +6,7 @@
                 <div class="col-12">
 
                     <div class="form-input ">
-                        <input type="text" name="name" required="" value="{{$hotel->name}}">
+                        <input type="text" name="name" required="" value="{{$hotel->name}}" autocomplete="off" aria-autocomplete="none">
                         <label class="lh-1 text-16 text-light-1">Tên khách sạn</label>
                     </div>
 

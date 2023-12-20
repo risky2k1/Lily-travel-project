@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Facility;
 use App\Models\Hotel;
+use App\Models\Service;
 use App\Models\States\HotelState\Pending;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,7 +64,15 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        return view('admin.layouts.hotel.edit', compact('hotel'));
+        $types = Type::all();
+        $services = Service::all();
+        $facilities = Facility::all();
+
+        $selectedTypes = $hotel->types->pluck('id')->toArray();
+        $selectedServices = $hotel->services->pluck('id')->toArray();
+        $selectedFacilities = $hotel->facilities->pluck('id')->toArray();
+
+        return view('admin.layouts.hotel.edit', compact('hotel', 'types', 'services', 'facilities', 'selectedTypes', 'selectedServices', 'selectedFacilities'));
     }
 
     /**
@@ -76,7 +87,21 @@ class HotelController extends Controller
             'is_feature' => ['nullable'],
             'map' => ['nullable'],
             'address' => ['nullable'],
+            'price' => ['string', 'nullable'],
+            'checkin' => ['date', 'nullable'],
+            'checkout' => ['date', 'nullable'],
         ]);
+
+        if (!empty($request->input('type'))) {
+            $hotel->types()->sync($request->input('type'));
+        }
+        if (!empty($request->input('facility'))) {
+            $hotel->facilities()->sync($request->input('facility'));
+        }
+        if (!empty($request->input('service'))) {
+            $hotel->services()->sync($request->input('service'));
+        }
+
         $hotel->update([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -84,6 +109,9 @@ class HotelController extends Controller
             'is_feature' => $request->input('is_feature'),
             'map' => $request->input('map'),
             'address' => $request->input('address'),
+            'price' => $request->input('price'),
+            'checkin_time' => $request->input('checkin'),
+            'checkout_time' => $request->input('checkout'),
         ]);
 
         return redirect()->route('admin.index');

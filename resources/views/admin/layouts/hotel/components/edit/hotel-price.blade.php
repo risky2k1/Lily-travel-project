@@ -6,7 +6,7 @@
 
 
                 <div class="form-input ">
-                    <input type="text" name="price" id="price">
+                    <input type="text" name="price" id="price" value="{{$hotel->price}}">
                     <label for="price" class="lh-1 text-16 text-light-1">Giá</label>
                 </div>
 
@@ -19,8 +19,8 @@
             <div class="col-md-6">
 
                 <div class="form-input ">
-                    <input type="text" class="datepicker">
-                    <label class="lh-1 text-16 text-light-1">Time for check in</label>
+                    <input type="date" name="checkin" value="{{$hotel->checkin_time}}">
+                    <label class="lh-1 text-16 text-light-1">Thời gian check in</label>
                 </div>
 
             </div>
@@ -28,8 +28,8 @@
             <div class="col-md-6">
 
                 <div class="form-input ">
-                    <input type="text" class="datepicker">
-                    <label class="lh-1 text-16 text-light-1">Time for check out</label>
+                    <input type="date" name="checkout" value="{{$hotel->checkout_time}}">
+                    <label class="lh-1 text-16 text-light-1">Thời gian check out</label>
                 </div>
 
 
