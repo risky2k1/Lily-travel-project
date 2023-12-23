@@ -7,19 +7,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\ModelStates\HasStates;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Hotel extends Model
+class Hotel extends Model implements HasMedia
 {
     use HasFactory;
     use HasStates;
+    use InteractsWithMedia;
+    use SoftDeletes;
+
+    protected $table = 'hotels';
 
     protected $fillable = [
         'name',
         'description',
         'content',
         'is_feature',
-        'author',
+        'author_id',
         'state',
         'map',
         'address',
@@ -30,6 +41,24 @@ class Hotel extends Model
     protected $casts = [
         'state' => HotelState::class,
     ];
+
+    public function bookings(): MorphMany
+    {
+        return $this->morphMany(Booking::class, 'modelType');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Manipulations::FIT_CROP, 300, 300)
+            ->nonQueued();
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class,'author_id');
+    }
 
     public function types(): BelongsToMany
     {

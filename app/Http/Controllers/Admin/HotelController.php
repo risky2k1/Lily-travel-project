@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use App\Models\Hotel;
 use App\Models\Service;
@@ -9,15 +10,31 @@ use App\Models\States\HotelState\Pending;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class HotelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $tableName = Hotel::class;
+        View::share('title', 'Hotel');
+    }
+
+    public function index(Request $request)
+    {
+        $query = Hotel::query();
+
+        if ($request->input('state') && $request->input('state') !== 'all hotel') {
+            $query->where('state', $request->input('state'));
+        }
+
+        $hotels = $query->paginate();
+
+        $hotelStates = Hotel::getStates()->first()->toArray();
+        return view('admin.layouts.hotel.index', compact('hotels', 'hotelStates'));
     }
 
     /**
@@ -44,7 +61,7 @@ class HotelController extends Controller
             'description' => $request->input('description'),
             'content' => $request->input('content'),
             'is_feature' => $request->input('is_feature'),
-            'author' => Auth::id(),
+            'author_id' => Auth::id(),
             'state' => Pending::class,
         ]);
 
@@ -114,7 +131,7 @@ class HotelController extends Controller
             'checkout_time' => $request->input('checkout'),
         ]);
 
-        return redirect()->route('admin.index');
+        return redirect()->route('admin.hotel.index');
 
     }
 

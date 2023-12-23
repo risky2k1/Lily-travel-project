@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('author')->constrained('users');
+            $table->foreignId('author_id')->constrained('users');
 
 
             $table->string('state');
@@ -32,6 +32,7 @@ return new class extends Migration
             $table->boolean('is_feature')->nullable();
 
             $table->integer('max_guests')->nullable()->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });
