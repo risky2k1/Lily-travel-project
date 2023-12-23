@@ -40,7 +40,7 @@ class BookingController extends Controller
         $booking->user_address = $request->input('address');
         $booking->user_request = $request->input('request');
 
-        $booking->type()->associate($item);
+        $booking->modelType()->associate($item);
 
         $booking->save();
 
