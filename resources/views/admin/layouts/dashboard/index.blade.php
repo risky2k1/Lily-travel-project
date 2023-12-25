@@ -78,7 +78,8 @@
 
 
                     <div class="dropdown js-dropdown js-category-active">
-                        <div class="dropdown__button d-flex items-center bg-white border-light rounded-100 px-15 py-10 text-14 lh-12" data-el-toggle=".js-category-toggle" data-el-toggle-active=".js-category-active">
+                        <div class="dropdown__button d-flex items-center bg-white border-light rounded-100 px-15 py-10 text-14 lh-12" data-el-toggle=".js-category-toggle"
+                             data-el-toggle-active=".js-category-active">
                             <span class="js-dropdown-title">This Week</span>
                             <i class="icon icon-chevron-sm-down text-7 ml-10"></i>
                         </div>

@@ -40,7 +40,7 @@
                                         <input type="email" name="email" id="email" value="{{old('email')}}" autofocus required>
                                         <label class="lh-1 text-14 text-light-1" for="email">Email</label>
                                     </div>
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-2" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-2"/>
                                 </div>
 
                                 <div class="col-12">
@@ -49,7 +49,7 @@
                                         <input type="password" name="password" id="password" required>
                                         <label class="lh-1 text-14 text-light-1" for="password">Mật khẩu</label>
                                     </div>
-                                        <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-2" />
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-2"/>
 
                                 </div>
 

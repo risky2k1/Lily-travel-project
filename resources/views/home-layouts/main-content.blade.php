@@ -5,7 +5,7 @@
     {{--    Popular Destinations--}}
     @include('home-layouts.components.popular-destination')
     {{--    Things to do on--}}
-{{--    @include('home-layouts.components.advertisement')--}}
+    {{--    @include('home-layouts.components.advertisement')--}}
     {{--recommend list--}}
     @include('home-layouts.components.recommend-list')
     {{--Best buy gurantee--}}

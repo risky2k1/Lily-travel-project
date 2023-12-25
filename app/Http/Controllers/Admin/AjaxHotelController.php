@@ -13,12 +13,12 @@ class AjaxHotelController extends Controller
     {
         $hotel = Hotel::findOrFail($request->hotel_id);
 
-        if ($hotel->state->canTransitionTo(Approved::class)){
+        if ($hotel->state->canTransitionTo(Approved::class)) {
             $hotel->state->transitionTo(Approved::class);
         }
 
         return response()->json([
-           'status' => 'success',
+            'status' => 'success',
         ]);
     }
 }

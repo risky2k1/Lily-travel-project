@@ -78,11 +78,11 @@
                                     <td>
                                         <div class="row x-gap-10 y-gap-10 items-center">
                                             @if($hotel->state == \App\Models\States\HotelState\Pending::$name)
-                                            <div class="col-auto">
-                                                <button class="flex-center bg-light-2 rounded-4 size-35 approve-hotel" data-id="{{$hotel->id}}">
-                                                    <i class="icon-check text-16 text-light-1"></i>
-                                                </button>
-                                            </div>
+                                                <div class="col-auto">
+                                                    <button class="flex-center bg-light-2 rounded-4 size-35 approve-hotel" data-id="{{$hotel->id}}">
+                                                        <i class="icon-check text-16 text-light-1"></i>
+                                                    </button>
+                                                </div>
                                             @endif
                                             <div class="col-auto">
                                                 <button class="flex-center bg-light-2 rounded-4 size-35">

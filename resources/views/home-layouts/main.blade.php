@@ -39,9 +39,9 @@
 <script src="{{asset('js/vendors.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script>
-    $(document).ready(function (){
+    $(document).ready(function () {
         let bookingSuccess = $('#booking_success_modal').data('success');
-        if(bookingSuccess){
+        if (bookingSuccess) {
             $('#booking_success_modal').show();
         }
     })

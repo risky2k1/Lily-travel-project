@@ -1,26 +1,27 @@
 .sectionTitle {
-  &__title {
-  }
+    &__title {
+    }
 
-  &__text {}
+    &__text {
+    }
 
-  &.-md {
-    .sectionTitle {
-      &__title {
-        font-size: var(--text-30);
+    &.-md {
+        .sectionTitle {
+            &__title {
+                font-size: var(--text-30);
 
-        @include media-below(md) {
-          font-size: var(--text-26);
+                @include media-below(md) {
+                    font-size: var(--text-26);
+                }
+            }
         }
-      }
     }
-  }
 
-  &.-lg {
-    .sectionTitle {
-      &__title {
-        font-size: var(--text-40);
-      }
+    &.-lg {
+        .sectionTitle {
+            &__title {
+                font-size: var(--text-40);
+            }
+        }
     }
-  }
 }

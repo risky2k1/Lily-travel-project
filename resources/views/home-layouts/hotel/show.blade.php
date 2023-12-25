@@ -66,7 +66,8 @@
                             <div class="col-auto">
 
                                 <a href="{{route('home.booking.index',$hotel)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                                    Select Room <div class="icon-arrow-top-right ml-15"></div>
+                                    Select Room
+                                    <div class="icon-arrow-top-right ml-15"></div>
                                 </a>
 
                             </div>
@@ -126,7 +127,8 @@
                         <div class="col-auto">
 
                             <a href="{{route('home.booking.index',$hotel)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                                Select Room <div class="icon-arrow-top-right ml-15"></div>
+                                Select Room
+                                <div class="icon-arrow-top-right ml-15"></div>
                             </a>
 
                         </div>
@@ -222,7 +224,7 @@
                         <div id="overview" class="col-12">
                             <h3 class="text-22 fw-500 pt-40 border-top-light">Overview</h3>
                             <p class="text-dark-1 text-15 mt-20">
-                               {{$hotel->content}}
+                                {{$hotel->content}}
                             </p>
                             <a href="#" class="d-block text-14 text-blue-1 fw-500 underline mt-10">Show More</a>
                         </div>
@@ -230,7 +232,7 @@
                         <div class="col-12">
                             <h3 class="text-22 fw-500 pt-40 border-top-light">Most Popular Facilities</h3>
                             <div class="row y-gap-10 pt-20">
-@foreach($hotel->facilities as $facility)
+                                @foreach($hotel->facilities as $facility)
                                     <div class="col-md-5">
                                         <div class="d-flex x-gap-15 y-gap-15 items-center">
                                             <i class="icon-no-smoke"></i>
@@ -244,22 +246,22 @@
                             </div>
                         </div>
 
-{{--                        <div class="col-12">--}}
-{{--                            <div class="px-24 py-20 rounded-4 bg-green-1">--}}
-{{--                                <div class="row x-gap-20 y-gap-20 items-center">--}}
-{{--                                    <div class="col-auto">--}}
-{{--                                        <div class="flex-center size-60 rounded-full bg-white">--}}
-{{--                                            <i class="icon-star text-yellow-1 text-30"></i>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                        {{--                        <div class="col-12">--}}
+                        {{--                            <div class="px-24 py-20 rounded-4 bg-green-1">--}}
+                        {{--                                <div class="row x-gap-20 y-gap-20 items-center">--}}
+                        {{--                                    <div class="col-auto">--}}
+                        {{--                                        <div class="flex-center size-60 rounded-full bg-white">--}}
+                        {{--                                            <i class="icon-star text-yellow-1 text-30"></i>--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
 
-{{--                                    <div class="col-auto">--}}
-{{--                                        <h4 class="text-18 lh-15 fw-500">This property is in high demand!</h4>--}}
-{{--                                        <div class="text-15 lh-15">7 travelers have booked today.</div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                                    <div class="col-auto">--}}
+                        {{--                                        <h4 class="text-18 lh-15 fw-500">This property is in high demand!</h4>--}}
+                        {{--                                        <div class="text-15 lh-15">7 travelers have booked today.</div>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
 

@@ -14,8 +14,7 @@ abstract class BookingState extends State
         return parent::config()
             ->default(Processing::class)
             ->allowTransition(Processing::class, Cancelled::class)
-            ->allowTransition(Processing::class, Confirmed::class)
-            ;
+            ->allowTransition(Processing::class, Confirmed::class);
     }
 //Processing
 //Confirmed

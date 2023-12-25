@@ -8,9 +8,11 @@ class Pending extends HotelState
     {
         return 'green';
     }
+
     public function class(): string
     {
         return 'bg-yellow-4 text-yellow-3';
     }
+
     public static $name = 'pending';
 }

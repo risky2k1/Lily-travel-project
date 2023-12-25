@@ -32,6 +32,7 @@ class Booking extends Model
     protected $casts = [
         'state' => BookingState::class,
     ];
+
     public function modelType(): MorphTo
     {
         return $this->morphTo(__FUNCTION__, 'type', 'type_id');

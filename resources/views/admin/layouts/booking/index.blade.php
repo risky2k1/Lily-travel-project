@@ -16,7 +16,8 @@
                     <input type="text" hidden name="state" id="state">
                     @foreach($bookingStates as $state)
                         <div class="col-auto">
-                            <button class="booking_state_button tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 @if(request()->get('state') === $state) is-tab-el-active @endif capitalize">{{$state}}</button>
+                            <button
+                                class="booking_state_button tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 @if(request()->get('state') === $state) is-tab-el-active @endif capitalize">{{$state}}</button>
                         </div>
                     @endforeach
 

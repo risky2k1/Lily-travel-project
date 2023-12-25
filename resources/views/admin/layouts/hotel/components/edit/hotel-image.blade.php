@@ -15,7 +15,7 @@
                     <div class="text-center mt-10 text-14 text-light-1">PNG or JPG no bigger than 800px wide and tall.</div>
                 </div>
             </div>
-{{--            <div id="image-preview-container" class="d-flex ratio ratio-1:1 w-200"></div>--}}
+            {{--            <div id="image-preview-container" class="d-flex ratio ratio-1:1 w-200"></div>--}}
             @foreach($hotel->getMedia('hotel-images') as $image)
                 <img src="{{ $image->getFullUrl() }}" alt="{{ $hotel->name }}">
             @endforeach
