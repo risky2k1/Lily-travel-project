@@ -62,6 +62,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 //        Route::patch('/{hotel}', [HotelController::class, 'update'])->name('admin.hotel.update');
 
     });
+
+//    Route::prefix('/user')->group(function (){
+//       Route::get('/',[])
+//    });
+
     Route::prefix('ajax')->group(function () {
         Route::post('/change-hotel-state', [AjaxHotelController::class, 'updateHotelState'])->name('ajax-hotel.state-hotel-update');
     });

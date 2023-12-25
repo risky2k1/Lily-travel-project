@@ -118,6 +118,11 @@ class HotelController extends Controller
         if (!empty($request->input('service'))) {
             $hotel->services()->sync($request->input('service'));
         }
+        if ($request->file('images')){
+            foreach ($request->file('images') as $item){
+                $hotel->addMedia($item)->toMediaCollection('hotel-images');
+            }
+        }
 
         $hotel->update([
             'name' => $request->input('name'),

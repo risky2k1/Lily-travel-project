@@ -55,23 +55,28 @@ class Hotel extends Model implements HasMedia
             ->nonQueued();
     }
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('hotel-images');
+    }
+
     public function author()
     {
-        return $this->belongsTo(User::class,'author_id');
+        return $this->belongsTo(User::class, 'author_id');
     }
 
     public function types(): BelongsToMany
     {
-        return $this->belongsToMany(Type::class,'hotel_types','hotel_id','type_id');
+        return $this->belongsToMany(Type::class, 'hotel_types', 'hotel_id', 'type_id');
     }
 
     public function facilities(): BelongsToMany
     {
-        return $this->belongsToMany(Facility::class,'hotel_facilities','hotel_id','facility_id');
+        return $this->belongsToMany(Facility::class, 'hotel_facilities', 'hotel_id', 'facility_id');
     }
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(Service::class,'hotel_services','hotel_id','service_id');
+        return $this->belongsToMany(Service::class, 'hotel_services', 'hotel_id', 'service_id');
     }
 }
