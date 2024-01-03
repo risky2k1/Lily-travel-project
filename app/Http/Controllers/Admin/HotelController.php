@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use App\Models\Hotel;
+use App\Models\HotelRoom;
+use App\Models\HotelRoomOption;
 use App\Models\Service;
 use App\Models\States\HotelState\Pending;
 use App\Models\Type;
@@ -122,6 +124,19 @@ class HotelController extends Controller
             foreach ($request->file('images') as $item) {
                 $hotel->addMedia($item)->toMediaCollection('hotel-images');
             }
+        }
+        if (!empty($request->input('hotel_room_name')) && !empty($request->input('hotel_room_options_name')) && !empty($request->input('hotel_room_price'))) {
+            $hotelRoom = HotelRoom::updateOrCreate([
+                'hotel_id' => $hotel->id,
+            ], [
+                'name' => $request->input('hotel_room_name'),
+                'price' => $request->input('hotel_room_price'),
+            ]);
+            HotelRoomOption::updateOrCreate([
+                'hotel_room_id' => $hotelRoom->id,
+            ], [
+                'name' => $request->input('hotel_room_options_name'),
+            ]);
         }
 
         $hotel->update([

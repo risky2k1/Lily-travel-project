@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8">
-                    <form action="{{route('home.booking.store',['type'=>'hotel',$hotel])}}" method="post">
+                    <form action="{{route('home.booking.store',['type'=>'hotel',$type->id])}}" method="post">
                         @csrf
                         <h2 class="text-22 fw-500 mt-40 md:mt-24">Let us know who you are</h2>
 
@@ -98,8 +98,8 @@
 
                                     </div>
 
-                                    <div class="lh-17 fw-500">{{$hotel->name}}</div>
-                                    <div class="text-14 lh-15 mt-5">{{$hotel->address}}</div>
+                                    <div class="lh-17 fw-500">{{$type->hotel->name}}</div>
+                                    <div class="text-14 lh-15 mt-5">{{$type->hotel->address}}</div>
 
                                     <div class="row x-gap-10 y-gap-10 items-center pt-10">
                                         <div class="col-auto">
@@ -124,7 +124,7 @@
                             <div class="row y-gap-20 justify-between">
                                 <div class="col-auto">
                                     <div class="text-15">Check-in</div>
-                                    <div class="fw-500">{{$hotel->checkin_time}}</div>
+                                    <div class="fw-500">{{$type->hotel->checkin_time}}</div>
                                     <div class="text-15 text-light-1">15:00 – 23:00</div>
                                 </div>
 
@@ -134,7 +134,7 @@
 
                                 <div class="col-auto text-right md:text-left">
                                     <div class="text-15">Check-out</div>
-                                    <div class="fw-500">{{$hotel->checkout_time}}</div>
+                                    <div class="fw-500">{{$type->hotel->checkout_time}}</div>
                                     <div class="text-15 text-light-1">01:00 – 11:00</div>
                                 </div>
                             </div>

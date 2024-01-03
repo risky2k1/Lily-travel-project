@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\MediaLibrary\HasMedia;
@@ -16,6 +17,10 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property mixed $rooms
+ * @property mixed $roomOptions
+ */
 class Hotel extends Model implements HasMedia
 {
     use HasFactory;
@@ -78,5 +83,22 @@ class Hotel extends Model implements HasMedia
     public function services(): BelongsToMany
     {
         return $this->belongsToMany(Service::class, 'hotel_services', 'hotel_id', 'service_id');
+    }
+
+    public function rooms(): HasMany
+    {
+        return $this->hasMany(HotelRoom::class);
+    }
+
+    public function roomOptions(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            HotelRoomOption::class,
+            HotelRoom::class,
+            'hotel_id',
+            'hotel_room_id',
+            'id',
+            'id'
+        );
     }
 }

@@ -2,18 +2,15 @@
 
 @push('css')
     <style>
-        #image-preview-container {
+        .image-preview-container {
             display: flex;
             flex-wrap: wrap;
         }
 
-        .image-preview {
-            width: 250px; /* Điều chỉnh kích thước hiển thị của từng ảnh */
-            height: 250px;
-            object-fit: contain;
-            margin: 5px;
-            border: 1px solid black;
-            border-radius: 4px;
+        .image-preview-container img {
+            width: 200px;
+            height: 200px;
+            margin-right: 5px;
         }
     </style>
 @endpush
@@ -70,7 +67,7 @@
 
                     <div class="d-inline-block pt-30">
                         <button type="submit" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                            Save Changes
+                            Lưu
                             <div class="icon-arrow-top-right ml-15"></div>
                         </button>
                     </div>
@@ -82,24 +79,27 @@
 
 @push('js')
     <script>
-        function previewImages(input) {
-            var container = document.getElementById('image-preview-container');
-            container.innerHTML = ''; // Clear previous previews
+        $(document).ready(function () {
+            $('#image-upload').change(function () {
+                previewImages(this);
+            });
 
-            var files = input.files;
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                if (file) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        var preview = document.createElement('img');
-                        preview.src = e.target.result;
-                        preview.classList.add('image-preview');
-                        container.appendChild(preview);
-                    };
-                    reader.readAsDataURL(file);
+            function previewImages(input) {
+                var previewContainer = $('.image-preview-container');
+                previewContainer.empty(); // Xóa nội dung hiện tại
+
+                if (input.files && input.files.length > 0) {
+                    $.each(input.files, function (index, file) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            var img = $('<img>').attr('src', e.target.result);
+                            previewContainer.append(img);
+                        };
+                        reader.readAsDataURL(file);
+                    });
                 }
             }
-        }
+        });
     </script>
 @endpush

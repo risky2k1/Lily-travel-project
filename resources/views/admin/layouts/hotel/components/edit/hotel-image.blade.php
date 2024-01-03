@@ -10,15 +10,16 @@
                             <div class="icon-upload-file text-40 text-blue-1 mb-10"></div>
                             <div class="text-blue-1 fw-500">Upload Images</div>
                         </label>
-                        <input type="file" id="image-upload" name="images[]" style="display: none;" multiple onchange="previewImages(this)">
+                        <input type="file" id="image-upload" name="images[]" style="display: none;" multiple>
                     </div>
-                    <div class="text-center mt-10 text-14 text-light-1">PNG or JPG no bigger than 800px wide and tall.</div>
                 </div>
             </div>
-            {{--            <div id="image-preview-container" class="d-flex ratio ratio-1:1 w-200"></div>--}}
-            @foreach($hotel->getMedia('hotel-images') as $image)
-                <img src="{{ $image->getFullUrl() }}" alt="{{ $hotel->name }}">
-            @endforeach
+            <div class="image-preview-container">
+                @foreach($hotel->getMedia('hotel-images') as $image)
+                    <img src="{{ $image->getFullUrl() }}" alt="{{ $hotel->name }}">
+                @endforeach
+            </div>
+
         </div>
     </div>
 </div>

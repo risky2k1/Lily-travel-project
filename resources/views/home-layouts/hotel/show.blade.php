@@ -1,82 +1,6 @@
 @extends('home-layouts.main')
 
 @section('content')
-    <section class="py-10 d-flex items-center bg-light-2">
-        <div class="container">
-            <div class="row y-gap-10 items-center justify-between">
-                <div class="col-auto">
-                    <div class="row x-gap-10 y-gap-5 items-center text-14 text-light-1">
-                        <div class="col-auto">
-                            <div class="">Home</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="">&gt;</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="">London Hotels</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="">&gt;</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="text-dark-1">Great Northern Hotel, a Tribute Portfolio Hotel, London</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-auto">
-                    <a href="#" class="text-14 text-blue-1 underline">All Hotel in London</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="singleMenu js-singleMenu">
-        <div class="singleMenu__content">
-            <div class="container">
-                <div class="row y-gap-20 justify-between items-center">
-                    <div class="col-auto">
-                        <div class="singleMenu__links row x-gap-30 y-gap-10">
-                            <div class="col-auto">
-                                <a href="#overview">Overview</a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#rooms">Rooms</a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#reviews">Reviews</a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#facilities">Facilities</a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#faq">Faq</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-auto">
-                        <div class="row x-gap-15 y-gap-15 items-center">
-                            <div class="col-auto">
-                                <div class="text-14">
-                                    From
-                                    <span class="text-22 text-dark-1 fw-500">US$72</span>
-                                </div>
-                            </div>
-
-                            <div class="col-auto">
-
-                                <a href="{{route('home.booking.index',$hotel)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                                    Select Room
-                                    <div class="icon-arrow-top-right ml-15"></div>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <section class="pt-40">
         <div class="container">
             <div class="row y-gap-20 justify-between items-end">
@@ -124,14 +48,14 @@
                             </div>
                         </div>
 
-                        <div class="col-auto">
+{{--                        <div class="col-auto">--}}
 
-                            <a href="{{route('home.booking.index',$hotel)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">
-                                Select Room
-                                <div class="icon-arrow-top-right ml-15"></div>
-                            </a>
+{{--                            <a href="{{route('home.booking.index',$hotel->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">--}}
+{{--                                Select Room--}}
+{{--                                <div class="icon-arrow-top-right ml-15"></div>--}}
+{{--                            </a>--}}
 
-                        </div>
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -304,6 +228,109 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    <section id="rooms" class="pt-30">
+        <div class="container">
+            <div class="row pb-20">
+                <div class="col-auto">
+                    <h3 class="text-22 fw-500">Available Rooms</h3>
+                </div>
+            </div>
+
+            <div class="border-light rounded-4 px-30 py-30 sm:px-20 sm:py-20">
+                <div class="row y-gap-20">
+                    <div class="col-12">
+                        <h3 class="text-18 fw-500 mb-15">{{$hotel->rooms->first()->name}}</h3>
+                        <div class="roomGrid">
+                            <div class="roomGrid__header">
+                                <div>Loại phòng</div>
+                                <div>Dịch vụ</div>
+                                <div>Giá</div>
+                                <div></div>
+                            </div>
+
+                            <div class="roomGrid__grid">
+                                <div>
+                                    <div class="">
+                                        <div class="d-flex items-center">
+                                            <i class="icon-no-smoke text-20 mr-10"></i>
+                                            <div class="text-15">Non-smoking rooms</div>
+                                        </div>
+
+                                        <div class="d-flex items-center">
+                                            <i class="icon-wifi text-20 mr-10"></i>
+                                            <div class="text-15">Free WiFi</div>
+                                        </div>
+
+                                        <div class="d-flex items-center">
+                                            <i class="icon-parking text-20 mr-10"></i>
+                                            <div class="text-15">Parking</div>
+                                        </div>
+
+                                        <div class="d-flex items-center">
+                                            <i class="icon-kitchen text-20 mr-10"></i>
+                                            <div class="text-15">Kitchen</div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="y-gap-30">
+
+                                    <div class="roomGrid__content">
+                                        <div>
+                                            <div class="text-15 fw-500 mb-10">Đã bao gồm:</div>
+
+                                            <div class="y-gap-8">
+                                                @foreach(explode("\n", $hotel->roomOptions->first()->name) as $item)
+                                                    <div class="d-flex items-center text-green-2">
+                                                        <i class="icon-check text-12 mr-10"></i>
+                                                        <div class="text-15">{{$item}}</div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+
+
+                                        <div>
+                                            <div class="text-18 lh-15 fw-500">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div>
+                                    <div class="text-22 fw-500 lh-17 mt-5">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
+
+
+                                    <a href="{{route('home.booking.index',$hotel->rooms->first()->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white mt-10">
+                                        Đặt ngay
+                                        <div class="icon-arrow-top-right ml-15"></div>
+                                    </a>
+
+
+                                    <div class="text-15 fw-500 mt-30">Bạn sẽ được đưa tới bước tiếp theo</div>
+
+                                    <ul class="list-disc y-gap-4 pt-5">
+
+                                        <li class="text-14">Xác thực ngay lập tức</li>
+
+                                        <li class="text-14">Không cần đăng kí</li>
+
+                                        <li class="text-14">Không thêm phụ phí!</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 @endsection

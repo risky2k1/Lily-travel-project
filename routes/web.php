@@ -27,7 +27,7 @@ Route::prefix('hotel')->group(function () {
     Route::get('/{hotel}', [HomeHotelController::class, 'show'])->name('home.hotel.show');
 });
 Route::prefix('booking')->group(function () {
-    Route::get('/{hotel}', [HomeBookingController::class, 'index'])->name('home.booking.index');
+    Route::get('/{type_id}', [HomeBookingController::class, 'index'])->name('home.booking.index');
     Route::post('/{type}/{type_id}', [HomeBookingController::class, 'store'])->name('home.booking.store');
 });
 

@@ -5,21 +5,25 @@ namespace App\Http\Controllers\Home\Booking;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Hotel;
+use App\Models\HotelRoom;
 use App\Models\States\BookingState\Processing;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-    public function index(Hotel $hotel)
+    public function index($type_id)
     {
-        return view('home-layouts.booking.index', compact('hotel'));
+        $type = HotelRoom::findOrFail($type_id);
+        return view('home-layouts.booking.index', compact('type'));
     }
 
     public function store(Request $request, $type, $typeId)
     {
         switch ($type) {
             case('hotel'):
-                $item = Hotel::findOrFail($typeId);
+                $room = HotelRoom::findOrFail($typeId);
+                $item = $room->hotel;
                 break;
             case('tour'):
                 break;
@@ -28,9 +32,9 @@ class BookingController extends Controller
         }
         $booking = new Booking();
         $booking->state = Processing::class;
-        $booking->start_date = $item->checkin_time;
-        $booking->end_date = $item->checkout_time;
-        $booking->total = $item->price;
+        $booking->start_date = $item->checkin_time ?? Carbon::now();
+        $booking->end_date = $item->checkout_time ?? Carbon::now();
+        $booking->total = $room->price ?? $item->price;
         if (auth()->check()) {
             $booking->user_id = auth()->id();
         }
