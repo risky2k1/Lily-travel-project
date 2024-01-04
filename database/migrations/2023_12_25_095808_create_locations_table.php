@@ -37,6 +37,9 @@ return new class extends Migration {
                 ]);
             }
         }
+        Schema::table('hotels', function (Blueprint $table) {
+            $table->foreignId('location_id')->nullable()->constrained('locations');
+        });
 
     }
 

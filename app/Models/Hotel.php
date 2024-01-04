@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use App\Models\States\HotelState\HotelState;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -42,6 +45,7 @@ class Hotel extends Model implements HasMedia
         'price',
         'checkin_time',
         'checkout_time',
+        'location_id',
     ];
     protected $casts = [
         'state' => HotelState::class,
@@ -99,6 +103,22 @@ class Hotel extends Model implements HasMedia
             'hotel_room_id',
             'id',
             'id'
+        );
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    protected function nights(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                $start = Carbon::parse($this->checkin_time);
+                $end = Carbon::parse($this->checkout_time);
+                return $end->diffInDays($start);
+            }
         );
     }
 }

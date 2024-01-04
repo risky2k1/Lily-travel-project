@@ -346,7 +346,7 @@
                 ],
                 datasets: [{
                     label: '#',
-                    data: [148, 100, 205, 110, 165, 145, 180, 156, 148, 220, 180, 245],
+                    data: [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     tension: 0.4,
                     backgroundColor: '#336CFB',
                     borderColor: '#336CFB',
@@ -363,9 +363,9 @@
                 scales: {
                     y: {
                         min: 0,
-                        max: 300,
+                        max: 150,
                         ticks: {
-                            stepSize: 50
+                            stepSize: 10
                         }
                     }
                 },

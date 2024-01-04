@@ -48,21 +48,13 @@
                             </div>
                         </div>
 
-{{--                        <div class="col-auto">--}}
-
-{{--                            <a href="{{route('home.booking.index',$hotel->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white">--}}
-{{--                                Select Room--}}
-{{--                                <div class="icon-arrow-top-right ml-15"></div>--}}
-{{--                            </a>--}}
-
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>
 
             <div class="galleryGrid -type-1 pt-30">
                 <div class="galleryGrid__item relative d-flex">
-                    <img src="{{asset('img/gallery/1/1.png')}}" alt="image" class="rounded-4">
+                    <img src="{{$hotel->getFirstMediaUrl('hotel-images')}}" alt="image" class="rounded-4">
 
                     <div class="absolute px-20 py-20 col-12 d-flex justify-end">
                         <button class="button -blue-1 size-40 rounded-full flex-center bg-white text-dark-1">
@@ -71,37 +63,12 @@
                     </div>
                 </div>
 
-                <div class="galleryGrid__item">
-                    <img src="{{asset('img/gallery/1/2.png')}}" alt="image" class="rounded-4">
-                </div>
-
-                <div class="galleryGrid__item relative d-flex">
-                    <img src="{{asset('img/gallery/1/3.png')}}" alt="image" class="rounded-4">
-
-                    <div class="absolute h-full col-12 flex-center">
-                        <a href="https://www.youtube.com/watch?v=ANYfx4-jyqY" class="button -blue-1 size-40 rounded-full flex-center bg-white text-dark-1 js-gallery" data-gallery="gallery1">
-                            <i class="icon-play text-16"></i>
-                        </a>
+                @foreach($hotel->getMedia('hotel-images') as $key=>$image)
+                    <div class="galleryGrid__item @if($key %2!= 0)relative d-flex @endif">
+                        <img src="{{$image->getFullUrl()}}" alt="image" class="rounded-4">
                     </div>
-                </div>
 
-                <div class="galleryGrid__item">
-                    <img src="{{asset('img/gallery/1/4.png')}}" alt="image" class="rounded-4">
-                </div>
-
-                <div class="galleryGrid__item relative d-flex">
-                    <img src="{{asset('img/gallery/1/5.png')}}" alt="image" class="rounded-4">
-
-                    <div class="absolute px-10 py-10 col-12 h-full d-flex justify-end items-end">
-                        <a href="{{asset('img/gallery/1/1.png')}}" class="button -blue-1 px-24 py-15 bg-white text-dark-1 js-gallery" data-gallery="gallery2">
-                            See All 90 Photos
-                        </a>
-                        <a href="{{asset('img/gallery/1/2.png')}}" class="js-gallery" data-gallery="gallery2"></a>
-                        <a href="{{asset('img/gallery/1/3.png')}}" class="js-gallery" data-gallery="gallery2"></a>
-                        <a href="{{asset('img/gallery/1/4.png')}}" class="js-gallery" data-gallery="gallery2"></a>
-                        <a href="{{asset('img/gallery/1/5.png')}}" class="js-gallery" data-gallery="gallery2"></a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -170,22 +137,6 @@
                             </div>
                         </div>
 
-                        {{--                        <div class="col-12">--}}
-                        {{--                            <div class="px-24 py-20 rounded-4 bg-green-1">--}}
-                        {{--                                <div class="row x-gap-20 y-gap-20 items-center">--}}
-                        {{--                                    <div class="col-auto">--}}
-                        {{--                                        <div class="flex-center size-60 rounded-full bg-white">--}}
-                        {{--                                            <i class="icon-star text-yellow-1 text-30"></i>--}}
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-
-                        {{--                                    <div class="col-auto">--}}
-                        {{--                                        <h4 class="text-18 lh-15 fw-500">This property is in high demand!</h4>--}}
-                        {{--                                        <div class="text-15 lh-15">7 travelers have booked today.</div>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
 

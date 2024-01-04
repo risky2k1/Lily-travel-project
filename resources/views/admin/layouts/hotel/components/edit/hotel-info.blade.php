@@ -26,6 +26,16 @@
                 </div>
 
             </div>
+            <div class="mt-20">
+                <div class="fw-500 mb-20">Loại phòng</div>
+                <div class="form-select">
+                    <select class="select2" name="location" id="location">
+                        @foreach(\App\Models\Location::all() as $location)
+                            <option value="{{$location->id}}" @selected($hotel->location_id == $location->id)>{{$location->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="d-flex mt-20">
                 <div class="form-checkbox ">
                     <input type="checkbox" name="is_feature" id="is_feature" @checked($hotel->is_feature) value="1">

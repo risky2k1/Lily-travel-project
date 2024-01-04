@@ -9,10 +9,10 @@ class Confirmed extends BookingState
         return 'green';
     }
 
-//    public function class()
-//    {
-//        return 'bg-success-1 text-success-2';
-//    }
+    public function class()
+    {
+        return 'bg-success-1 text-success-2';
+    }
 
     public static $name = 'confirmed';
 }

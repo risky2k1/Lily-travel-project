@@ -55,9 +55,9 @@
 
                     <div class="row items-center x-gap-5 y-gap-20 pl-20 lg:d-none">
                         <div class="col-auto">
-                            <button class="button -blue-1-05 size-50 rounded-22 flex-center">
+                            <a href="{{route('chatify')}}" class="button -blue-1-05 size-50 rounded-22 flex-center">
                                 <i class="icon-email-2 text-20"></i>
-                            </button>
+                            </a>
                         </div>
 
                         <div class="col-auto">

@@ -11,10 +11,10 @@ class Processing extends BookingState
         return 'green';
     }
 
-//    public function class()
-//    {
-//        return 'bg-success-1 text-success-2';
-//    }
+    public function class(): string
+    {
+        return 'bg-yellow-4 text-yellow-3';
+    }
 
     public static $name = 'processing';
 }

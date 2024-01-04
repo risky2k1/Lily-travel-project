@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('hotel_id')->constrained('hotels')->cascadeOnDelete();
 
             $table->string('name');
-            $table->decimal('price');
+            $table->decimal('price', 18, 0);
             $table->timestamps();
         });
         Schema::create('hotel_room_options', function (Blueprint $table) {

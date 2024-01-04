@@ -80,6 +80,7 @@
 @push('js')
     <script>
         $(document).ready(function () {
+
             $('#image-upload').change(function () {
                 previewImages(this);
             });

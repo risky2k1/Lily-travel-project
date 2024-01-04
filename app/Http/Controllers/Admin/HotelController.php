@@ -149,6 +149,7 @@ class HotelController extends Controller
             'price' => $request->input('price'),
             'checkin_time' => $request->input('checkin'),
             'checkout_time' => $request->input('checkout'),
+            'location_id' => $request->input('location'),
         ]);
 
         return redirect()->route('admin.hotel.index');

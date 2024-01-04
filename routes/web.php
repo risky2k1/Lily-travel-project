@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home.page');
 
 Route::prefix('hotel')->group(function () {
+    Route::get('/', [HomeHotelController::class, 'index'])->name('home.hotel.index');
     Route::get('/{hotel}', [HomeHotelController::class, 'show'])->name('home.hotel.show');
 });
 Route::prefix('booking')->group(function () {

@@ -15,7 +15,6 @@ return new class extends Migration {
 
             $table->foreignId('author_id')->constrained('users');
 
-
             $table->string('state');
 
             $table->string('name');
@@ -23,7 +22,7 @@ return new class extends Migration {
             $table->longText('content')->comment('Nội dung');
             $table->text('map')->nullable();
             $table->string('address')->nullable();
-            $table->decimal('price')->nullable();
+            $table->decimal('price', 18, 0)->nullable();
 
             $table->string('checkin_time')->nullable();
             $table->string('checkout_time')->nullable();
