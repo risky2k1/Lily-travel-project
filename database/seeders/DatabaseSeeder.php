@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             FacilitySeeder::class,
             ServiceSeeder::class,
             TypeSeeder::class,
+            HotelSeeder::class,
         ]);
 
     }

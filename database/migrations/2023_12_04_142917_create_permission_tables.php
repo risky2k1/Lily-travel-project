@@ -123,12 +123,18 @@ return new class extends Migration {
         $roleUser = Role::create(['name' => 'User']);
 
         $superAdmin = \App\Models\User::create([
-            'name' => 'Admin',
+            'name' => 'Lily Travel',
+            'email' => 'buiquanganh9977@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+        ]);
+        $superAdmin2 = \App\Models\User::create([
+            'name' => 'Tuns',
             'email' => 'theloneranger241@gmail.com',
             'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
         ]);
 
         $superAdmin->assignRole('Super Admin');
+        $superAdmin2->assignRole('Super Admin');
     }
 
     /**
