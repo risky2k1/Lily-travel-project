@@ -21,7 +21,7 @@
 
                                 <div class="cardImage ratio ratio-1:1">
                                     <div class="cardImage__content">
-                                        <img class="rounded-4 col-12" src="{{$hotel->getFirstMediaUrl('hotel-images')??asset('img/hotels/1.png')}}" alt="image">
+                                        <img class="rounded-4 col-12" src="{{asset('storage/'.($hotel->image)[0])??asset('img/hotels/1.png')}}" alt="image">
                                     </div>
 
                                     <div class="cardImage__wishlist">

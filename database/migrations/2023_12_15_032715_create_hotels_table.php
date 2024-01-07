@@ -18,11 +18,13 @@ return new class extends Migration {
             $table->string('state');
 
             $table->string('name');
+            $table->string('slug');
             $table->text('description')->comment('Mô tả');
             $table->longText('content')->comment('Nội dung');
             $table->text('map')->nullable();
             $table->string('address')->nullable();
             $table->decimal('price', 18, 0)->nullable();
+            $table->text('image')->nullable();
 
             $table->string('checkin_time')->nullable();
             $table->string('checkout_time')->nullable();

@@ -12,7 +12,9 @@ use App\Models\States\HotelState\Pending;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class HotelController extends Controller
 {
@@ -58,8 +60,10 @@ class HotelController extends Controller
             'content' => ['string', 'required'],
             'is_feature' => ['nullable'],
         ]);
+        $name = $request->input('name');
         $hotel = Hotel::create([
-            'name' => $request->input('name'),
+            'name' => $name,
+            'slug' => Str::slug($name, '-'),
             'description' => $request->input('description'),
             'content' => $request->input('content'),
             'is_feature' => $request->input('is_feature'),
@@ -121,9 +125,19 @@ class HotelController extends Controller
             $hotel->services()->sync($request->input('service'));
         }
         if ($request->file('images')) {
-            foreach ($request->file('images') as $item) {
-                $hotel->addMedia($item)->toMediaCollection('hotel-images');
+            $imagePaths = [];
+            $imageDirectory = 'image/hotels'.'/'.$hotel->id;
+
+            if (!Storage::disk('public')->exists($imageDirectory)) {
+                Storage::disk('public')->makeDirectory($imageDirectory, 0755, true);
             }
+            foreach ($request->file('images') as $key => $item) {
+                $path = Storage::disk('public')->put($imageDirectory, $item);
+                $imagePaths[] = $path;
+            }
+            $hotel->update([
+                'image' => $imagePaths,
+            ]);
         }
         if (!empty($request->input('hotel_room_name')) && !empty($request->input('hotel_room_options_name')) && !empty($request->input('hotel_room_price'))) {
             $hotelRoom = HotelRoom::updateOrCreate([

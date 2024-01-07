@@ -15,9 +15,12 @@
                 </div>
             </div>
             <div class="image-preview-container">
-                @foreach($hotel->getMedia('hotel-images') as $image)
-                    <img src="{{ $image->getFullUrl() }}" alt="{{ $hotel->name }}">
-                @endforeach
+                @if($hotel->image)
+                    @foreach($hotel->image as $image)
+                        <img src="{{ asset('storage/'.$image) }}" alt="{{ $hotel->name }}">
+                    @endforeach
+                @endif
+
             </div>
 
         </div>

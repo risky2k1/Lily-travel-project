@@ -12100,7 +12100,7 @@ div[data-slider] > input[type=range]::-ms-tooltip {
 
 .form-input textarea:focus ~ label, .form-input textarea:valid ~ label,
 .form-input input:focus ~ label, .form-input input:valid ~ label {
-    transform: translateY(-10px);
+    transform: translateY(-16px);
 }
 
 .sidebar.-blog > * + * {

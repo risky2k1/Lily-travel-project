@@ -46,11 +46,13 @@
                                                         class="cardImage-slider rounded-4 overflow-hidden js-cardImage-slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
                                                         <div class="swiper-wrapper" id="swiper-wrapper-8b10bab1c1a450d5a" aria-live="polite"
                                                              style="transition-duration: 0ms; transform: translate3d(-500px, 0px, 0px);">
-                                                            @foreach($hotel->getMedia('hotel-images') as $key=>$image)
-                                                                <div class="swiper-slide">
-                                                                    <img class="col-12" src="{{$image->getFullUrl()}}" alt="image">
-                                                                </div>
-                                                            @endforeach
+                                                            @if($hotel->image)
+                                                                @foreach($hotel->image as $key=>$image)
+                                                                    <div class="swiper-slide">
+                                                                        <img src="{{ asset('storage/'.$image) }}" alt="{{ $hotel->name }}">
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
                                                         </div>
 
                                                         <div class="cardImage-slider__nav -prev">
