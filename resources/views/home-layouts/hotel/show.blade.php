@@ -54,7 +54,7 @@
 
             <div class="galleryGrid -type-1 pt-30">
                 <div class="galleryGrid__item relative d-flex">
-                    <img src="{{$hotel->getFirstMediaUrl('hotel-images')}}" alt="image" class="rounded-4">
+                    <img src="{{asset('storage/'.($hotel->image)[0])??asset('img/hotels/1.png')}}" alt="image" class="rounded-4">
 
                     <div class="absolute px-20 py-20 col-12 d-flex justify-end">
                         <button class="button -blue-1 size-40 rounded-full flex-center bg-white text-dark-1">
@@ -62,13 +62,14 @@
                         </button>
                     </div>
                 </div>
+                @if($hotel->image)
+                    @foreach($hotel->image as $key=>$image)
+                        <div class="galleryGrid__item @if($key %2!= 0)relative d-flex @endif">
+                            <img src="{{ asset('storage/'.$image) }}" alt="{{ $hotel->name }}">
+                        </div>
+                    @endforeach
+                @endif
 
-                @foreach($hotel->getMedia('hotel-images') as $key=>$image)
-                    <div class="galleryGrid__item @if($key %2!= 0)relative d-flex @endif">
-                        <img src="{{$image->getFullUrl()}}" alt="image" class="rounded-4">
-                    </div>
-
-                @endforeach
             </div>
         </div>
     </section>
@@ -192,7 +193,7 @@
             <div class="border-light rounded-4 px-30 py-30 sm:px-20 sm:py-20">
                 <div class="row y-gap-20">
                     <div class="col-12">
-                        <h3 class="text-18 fw-500 mb-15">{{$hotel->rooms->first()->name}}</h3>
+                        <h3 class="text-18 fw-500 mb-15">{{$hotel->rooms->first()?->name}}</h3>
                         <div class="roomGrid">
                             <div class="roomGrid__header">
                                 <div>Loại phòng</div>
@@ -235,7 +236,7 @@
                                             <div class="text-15 fw-500 mb-10">Đã bao gồm:</div>
 
                                             <div class="y-gap-8">
-                                                @foreach(explode("\n", $hotel->roomOptions->first()->name) as $item)
+                                                @foreach(explode("\n", $hotel->roomOptions->first()?->name) as $item)
                                                     <div class="d-flex items-center text-green-2">
                                                         <i class="icon-check text-12 mr-10"></i>
                                                         <div class="text-15">{{$item}}</div>

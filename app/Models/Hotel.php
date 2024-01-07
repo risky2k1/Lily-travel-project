@@ -46,9 +46,12 @@ class Hotel extends Model implements HasMedia
         'checkin_time',
         'checkout_time',
         'location_id',
+        'slug',
+        'image',
     ];
     protected $casts = [
         'state' => HotelState::class,
+        'image' => 'array',
     ];
 
     public function bookings(): MorphMany
