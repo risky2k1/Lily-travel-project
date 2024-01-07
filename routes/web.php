@@ -28,8 +28,11 @@ Route::prefix('hotel')->group(function () {
     Route::get('/{hotel}', [HomeHotelController::class, 'show'])->name('home.hotel.show');
 });
 Route::prefix('booking')->group(function () {
-    Route::get('/{type_id}', [HomeBookingController::class, 'index'])->name('home.booking.index');
+    Route::get('/{booking}', [HomeBookingController::class, 'index'])->name('home.booking.index');
+    Route::get('/create/{type_id}', [HomeBookingController::class, 'create'])->name('home.booking.create');
     Route::post('/{type}/{type_id}', [HomeBookingController::class, 'store'])->name('home.booking.store');
+    Route::post('/{booking}', [HomeBookingController::class, 'payment'])->name('home.booking.payment');
+//    Route::get('/{booking}', [HomeBookingController::class, 'show'])->name('home.booking.show');
 });
 
 Route::get('/dashboard', function () {

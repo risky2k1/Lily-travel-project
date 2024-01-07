@@ -259,7 +259,7 @@
                                     <div class="text-22 fw-500 lh-17 mt-5">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
 
 
-                                    <a href="{{route('home.booking.index',$hotel->rooms->first()->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white mt-10">
+                                    <a href="{{route('home.booking.create',$hotel->rooms->first()->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white mt-10">
                                         Đặt ngay
                                         <div class="icon-arrow-top-right ml-15"></div>
                                     </a>

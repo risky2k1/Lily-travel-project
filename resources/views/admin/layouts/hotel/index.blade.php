@@ -85,12 +85,6 @@
                                                 </div>
                                             @endif
                                             <div class="col-auto">
-                                                <button class="flex-center bg-light-2 rounded-4 size-35">
-                                                    <i class="icon-eye text-16 text-light-1"></i>
-                                                </button>
-                                            </div>
-
-                                            <div class="col-auto">
                                                 <a href="{{ route('admin.hotel.edit',$hotel) }}" class="flex-center bg-light-2 rounded-4 size-35">
                                                     <i class="icon-edit text-16 text-light-1"></i>
                                                 </a>
@@ -101,7 +95,6 @@
                                                     <i class="icon-trash-2 text-16 text-light-1"></i>
                                                 </button>
                                             </div>
-
                                         </div>
                                     </td>
                                 </tr>

@@ -28,7 +28,6 @@
 <main>
     <div class="header-margin"></div>
     @include('home-layouts.header')
-
     @yield('content')
 
     @include('home-layouts.footer')
