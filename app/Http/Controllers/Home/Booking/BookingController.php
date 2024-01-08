@@ -68,8 +68,7 @@ class BookingController extends Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
 
         $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-        $vnp_Returnurl = "http://lily-travel-project.test/booking/".$booking->id;
-//        $vnp_Returnurl = "http://52.62.233.0/booking/".$booking->id;
+        $vnp_Returnurl = "http://lily-travel.click/booking/".$booking->id;
         $vnp_TmnCode = "HAALBR4C";//Mã website tại VNPAY
         $vnp_HashSecret = "DOEDKVPCIDKPORUHIAKWOEBHJDDUMWWL"; //Chuỗi bí mật
 
