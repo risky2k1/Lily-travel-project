@@ -1,6 +1,6 @@
 <section data-anim-wrap class="masthead -type-1 z-5">
     <div data-anim-child="fade" class="masthead__bg">
-        <img src="#" alt="image" data-src="img/masthead/1/bg.webp" class="js-lazy">
+        <img src="#" alt="image" data-src="img/masthead/1/bg2.webp" class="js-lazy">
     </div>
 
     <div class="container">

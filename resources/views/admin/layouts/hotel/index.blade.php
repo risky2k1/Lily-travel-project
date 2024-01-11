@@ -8,7 +8,7 @@
                     <div class="col-auto">
                         <button type="button"
                                 class="tabs__button text-18 lg:text-16 text-light-1 fw-500 pb-5 lg:pb-0 @if(request()->state == null || request()->state === 'all hotel')is-tab-el-active @endif hotel_state_button">
-                            All Hotel
+                            All hotel
                         </button>
                     </div>
                     <input type="text" hidden name="state" id="state">
@@ -47,7 +47,6 @@
                                 <th>Location</th>
                                 <th>Author</th>
                                 <th>Status</th>
-                                <th>Reviews</th>
                                 <th>Date</th>
                                 <th>Action</th>
                             </tr>
@@ -71,9 +70,6 @@
                                     <td>{{$hotel->address}}</td>
                                     <td>{{$hotel->author->name}}</td>
                                     <td><span class="rounded-100 py-4 px-10 text-center text-14 fw-500 {{$hotel->state->class()}} capitalize state-class">{{$hotel->state}}</span></td>
-                                    <td>
-                                        <div class="rounded-4 size-35 bg-blue-1 text-white flex-center text-12 fw-600">4.8</div>
-                                    </td>
                                     <td>{{\Carbon\Carbon::parse($hotel->created_at)->format('d/m/Y')}}</td>
                                     <td>
                                         <div class="row x-gap-10 y-gap-10 items-center">
@@ -91,9 +87,13 @@
                                             </div>
 
                                             <div class="col-auto">
-                                                <button class="flex-center bg-light-2 rounded-4 size-35">
-                                                    <i class="icon-trash-2 text-16 text-light-1"></i>
-                                                </button>
+                                                <form action="{{route('admin.hotel.destroy',$hotel)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="flex-center bg-light-2 rounded-4 size-35">
+                                                        <i class="icon-trash-2 text-16 text-light-1"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </td>

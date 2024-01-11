@@ -12,12 +12,12 @@
 
         <div class="relative pt-40 sm:pt-20 js-section-slider" data-gap="30" data-scrollbar data-slider-cols="base-2 xl-4 lg-3 md-2 sm-2 base-1" data-anim="slide-up delay-2">
             <div class="swiper-wrapper">
-                @foreach($popularLocations as $location)
+                @foreach($popularLocations as $key=>$location)
                     <div class="swiper-slide">
 
                         <a href="{{route('home.hotel.index',['location'=>$location->id])}}" class="citiesCard -type-1 d-block rounded-4 ">
                             <div class="citiesCard__image ratio ratio-3:4">
-                                <img src="{{route('home.hotel.index',['location'=>$location->id])}}" data-src="img/destinations/1/1.webp" alt="image" class="js-lazy">
+                                <img src="{{route('home.hotel.index',['location'=>$location->id])}}" data-src="{{'img/destinations/1/'. $key+1 . '.jpg'}}" alt="image" class="js-lazy">
                             </div>
 
                             <div class="citiesCard__content d-flex flex-column justify-between text-center pt-30 pb-20 px-20">

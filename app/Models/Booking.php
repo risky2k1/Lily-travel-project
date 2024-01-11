@@ -35,6 +35,6 @@ class Booking extends Model
 
     public function modelType(): MorphTo
     {
-        return $this->morphTo(__FUNCTION__, 'type', 'type_id');
+        return $this->morphTo(__FUNCTION__, 'type', 'type_id','id');
     }
 }

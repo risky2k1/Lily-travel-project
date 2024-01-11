@@ -70,7 +70,7 @@ class HotelController extends Controller
             'author_id' => Auth::id(),
             'state' => Pending::class,
         ]);
-
+        toastr()->success('Tạo thành công');
         return redirect()->route('admin.hotel.edit', $hotel);
     }
 
@@ -109,10 +109,11 @@ class HotelController extends Controller
             'content' => ['string', 'required'],
             'is_feature' => ['nullable'],
             'map' => ['nullable'],
-            'address' => ['nullable'],
-            'price' => ['string', 'nullable'],
-            'checkin' => ['date', 'nullable'],
-            'checkout' => ['date', 'nullable'],
+            'address' => ['nullable', 'required'],
+            'price' => ['string', 'nullable', 'required'],
+            'checkin' => ['date', 'nullable', 'required'],
+            'checkout' => ['date', 'nullable', 'required'],
+            'hotel_room_name' => ['string', 'required'],
         ]);
 
         if (!empty($request->input('type'))) {
@@ -165,7 +166,7 @@ class HotelController extends Controller
             'checkout_time' => $request->input('checkout'),
             'location_id' => $request->input('location'),
         ]);
-
+        toastr()->success('Cập nhật thành công');
         return redirect()->route('admin.hotel.index');
 
     }
@@ -175,6 +176,12 @@ class HotelController extends Controller
      */
     public function destroy(Hotel $hotel)
     {
-        //
+        if ($hotel->bookings->count() == 0) {
+            $hotel->delete();
+            toastr()->success('Xoá khách sạn thành công');
+        } else {
+            toastr()->error('Có đơn đặt với khách sạn này');
+        }
+        return redirect()->route('admin.hotel.index');
     }
 }

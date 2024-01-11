@@ -22,12 +22,23 @@
 <body data-barba="wrapper">
 
 @include('home-layouts.components.page-loader')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                @php
+                    toastr()->error($error);
+                @endphp
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="header-margin"></div>
 <header data-add-bg="" class="header -dashboard bg-white js-header" data-x="header" data-x-toggle="is-menu-opened">
     <div data-anim="fade" class="header__container px-30 sm:px-20">
         <div class="-left-side">
-            <a href="index.html" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
+            <a href="{{route('admin.index')}}" class="header-logo" data-x="header-logo" data-x-toggle="is-logo-dark">
                 <img src="{{asset('img/general/logo-dark.svg')}}" alt="logo icon">
                 <img src="{{asset('img/general/logo-dark.svg')}}" alt="logo icon">
             </a>
@@ -40,12 +51,6 @@
                         <i class="icon-menu-2 text-20"></i>
                     </button>
 
-                    <div class="single-field relative d-flex items-center md:d-none ml-30">
-                        <input class="pl-50 border-light text-dark-1 h-50 rounded-8" type="email" placeholder="Search">
-                        <button class="absolute d-flex items-center h-full">
-                            <i class="icon-search text-20 px-15 text-dark-1"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -73,7 +78,7 @@
                     </div>
 
                     <div class="pl-15">
-                        <img src="{{asset('img/avatars/3.png')}}" alt="image" class="size-50 rounded-22 object-cover">
+                        <img src="{{asset('img/avatars/avatar.png')}}" alt="image" class="size-50 rounded-22 object-cover">
                     </div>
 
                     <div class="d-none xl:d-flex x-gap-20 items-center pl-20" data-x="header-mobile-icons" data-x-toggle="text-white">

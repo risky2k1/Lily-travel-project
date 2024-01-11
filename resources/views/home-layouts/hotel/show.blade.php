@@ -173,95 +173,97 @@
                     <h3 class="text-22 fw-500">Các phòng hiện còn trống</h3>
                 </div>
             </div>
-
-            <div class="border-light rounded-4 px-30 py-30 sm:px-20 sm:py-20">
-                <div class="row y-gap-20">
-                    <div class="col-12">
-                        <h3 class="text-18 fw-500 mb-15">{{$hotel->rooms->first()?->name}}</h3>
-                        <div class="roomGrid">
-                            <div class="roomGrid__header">
-                                <div>Loại phòng</div>
-                                <div>Dịch vụ</div>
-                                <div>Giá</div>
-                                <div></div>
-                            </div>
-
-                            <div class="roomGrid__grid">
-                                <div>
-                                    <div class="">
-                                        <div class="d-flex items-center">
-                                            <i class="icon-no-smoke text-20 mr-10"></i>
-                                            <div class="text-15">Không hút thuốc</div>
-                                        </div>
-
-                                        <div class="d-flex items-center">
-                                            <i class="icon-wifi text-20 mr-10"></i>
-                                            <div class="text-15">Miễn phí wifi</div>
-                                        </div>
-
-                                        <div class="d-flex items-center">
-                                            <i class="icon-kitchen text-20 mr-10"></i>
-                                            <div class="text-15">Phòng bếp</div>
-                                        </div>
-
-                                    </div>
-
+            @if($hotel->rooms->count() >0)
+                <div class="border-light rounded-4 px-30 py-30 sm:px-20 sm:py-20">
+                    <div class="row y-gap-20">
+                        <div class="col-12">
+                            <h3 class="text-18 fw-500 mb-15">{{$hotel->rooms->first()?->name}}</h3>
+                            <div class="roomGrid">
+                                <div class="roomGrid__header">
+                                    <div>Loại phòng</div>
+                                    <div>Dịch vụ</div>
+                                    <div>Giá</div>
+                                    <div></div>
                                 </div>
 
-                                <div class="y-gap-30">
-
-                                    <div class="roomGrid__content">
-                                        <div>
-                                            <div class="text-15 fw-500 mb-10">Đã bao gồm:</div>
-
-                                            <div class="y-gap-8">
-                                                @foreach(explode("\n", $hotel->roomOptions->first()?->name) as $item)
-                                                    <div class="d-flex items-center text-green-2">
-                                                        <i class="icon-check text-12 mr-10"></i>
-                                                        <div class="text-15">{{$item}}</div>
-                                                    </div>
-                                                @endforeach
+                                <div class="roomGrid__grid">
+                                    <div>
+                                        <div class="">
+                                            <div class="d-flex items-center">
+                                                <i class="icon-no-smoke text-20 mr-10"></i>
+                                                <div class="text-15">Không hút thuốc</div>
                                             </div>
-                                        </div>
 
+                                            <div class="d-flex items-center">
+                                                <i class="icon-wifi text-20 mr-10"></i>
+                                                <div class="text-15">Miễn phí wifi</div>
+                                            </div>
 
-                                        <div>
-                                            <div class="text-18 lh-15 fw-500">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
+                                            <div class="d-flex items-center">
+                                                <i class="icon-kitchen text-20 mr-10"></i>
+                                                <div class="text-15">Phòng bếp</div>
+                                            </div>
+
                                         </div>
 
                                     </div>
 
+                                    <div class="y-gap-30">
 
-                                </div>
+                                        <div class="roomGrid__content">
+                                            <div>
+                                                <div class="text-15 fw-500 mb-10">Đã bao gồm:</div>
 
-                                <div>
-                                    <div class="text-22 fw-500 lh-17 mt-5">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
+                                                <div class="y-gap-8">
+                                                    @foreach(explode("\n", $hotel->roomOptions->first()?->name) as $item)
+                                                        <div class="d-flex items-center text-green-2">
+                                                            <i class="icon-check text-12 mr-10"></i>
+                                                            <div class="text-15">{{$item}}</div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
 
 
-                                    <a href="{{route('home.booking.create',$hotel->rooms->first()->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white mt-10">
-                                        Đặt ngay
-                                        <div class="icon-arrow-top-right ml-15"></div>
-                                    </a>
+                                            <div>
+                                                <div class="text-18 lh-15 fw-500">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
+                                            </div>
+
+                                        </div>
 
 
-                                    <div class="text-15 fw-500 mt-30">Bạn sẽ được đưa tới bước tiếp theo</div>
+                                    </div>
 
-                                    <ul class="list-disc y-gap-4 pt-5">
+                                    <div>
+                                        <div class="text-22 fw-500 lh-17 mt-5">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
 
-                                        <li class="text-14">Xác thực ngay lập tức</li>
 
-                                        <li class="text-14">Không cần đăng kí</li>
+                                        <a href="{{route('home.booking.create',$hotel->rooms->first()->id)}}" class="button h-50 px-24 -dark-1 bg-blue-1 text-white mt-10">
+                                            Đặt ngay
+                                            <div class="icon-arrow-top-right ml-15"></div>
+                                        </a>
 
-                                        <li class="text-14">Không thêm phụ phí!</li>
 
-                                    </ul>
+                                        <div class="text-15 fw-500 mt-30">Bạn sẽ được đưa tới bước tiếp theo</div>
+
+                                        <ul class="list-disc y-gap-4 pt-5">
+
+                                            <li class="text-14">Xác thực ngay lập tức</li>
+
+                                            <li class="text-14">Không cần đăng kí</li>
+
+                                            <li class="text-14">Không thêm phụ phí!</li>
+
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
+            @else
+                <h1>Khách sạn hiện tại đang hết phòng</h1>
+            @endif
         </div>
     </section>
 @endsection

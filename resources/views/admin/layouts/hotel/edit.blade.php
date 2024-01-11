@@ -42,15 +42,6 @@
             </div>
 
             <div class="tabs__content pt-30 js-tabs-content">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <form action="{{route('admin.hotel.update',$hotel)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')

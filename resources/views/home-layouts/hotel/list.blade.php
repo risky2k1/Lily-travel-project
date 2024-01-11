@@ -8,26 +8,11 @@
                 <div class="col-xl-9 col-lg-8">
                     <div class="row y-gap-10 items-center justify-between">
                         <div class="col-auto">
-                            <div class="text-18"><span class="fw-500">3,269 properties</span> in Europe</div>
+                            @if(request()->input('location'))
+                            <div class="text-18"><span class="fw-500">{{$hotels->count()}} kết quả</span> ở {{\App\Models\Location::where('id',request()->input('location'))->first()->name}}</div>
+                            @endif
                         </div>
 
-                        <div class="col-auto">
-                            <div class="row x-gap-20 y-gap-20">
-                                <div class="col-auto">
-                                    <button class="button -blue-1 h-40 px-20 rounded-100 bg-blue-1-05 text-15 text-blue-1">
-                                        <i class="icon-up-down text-14 mr-10"></i>
-                                        Top picks for your search
-                                    </button>
-                                </div>
-
-                                <div class="col-auto d-none lg:d-block">
-                                    <button data-x-click="filterPopup" class="button -blue-1 h-40 px-20 rounded-100 bg-blue-1-05 text-15 text-blue-1">
-                                        <i class="icon-up-down text-14 mr-10"></i>
-                                        Filter
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="mt-30"></div>
@@ -87,12 +72,13 @@
                                             <h3 class="text-18 lh-16 fw-500">
                                                 {{$hotel->name}}<br class="lg:d-none"> {{$hotel->location->name}}
                                             </h3>
+                                            @if($hotel->rooms->count() >0)
 
                                             <div class="text-14 lh-15 mt-20">
                                                 <div class="fw-500">{{$hotel->rooms->first()->name}}</div>
                                                 <div class="text-light-1">{!! $hotel->roomOptions->first()->name !!}</div>
                                             </div>
-
+                                            @endif
                                             <div class="text-14 text-green-2 lh-15 mt-10">
                                                 <div class="fw-500">Miễn phí huỷ đặt phòng</div>
                                                 <div class="">Bạn có thể huỷ sau, hãy đặt ngay phòng bây giờ.</div>

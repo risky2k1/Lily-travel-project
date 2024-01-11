@@ -56,7 +56,7 @@
                         <thead class="bg-light-2">
                         <tr>
                             <th>Tên phòng</th>
-                            <th>Dịch vụ</th>
+                            <th>Mô tả</th>
                             <th>Giá</th>
                         </tr>
                         </thead>
@@ -75,7 +75,7 @@
 
                                 <div class="form-input ">
                                     <textarea name="hotel_room_options_name" id="hotel_room_options_name" cols="30" rows="10">{{$hotel->roomOptions->first()->name??''}}</textarea>
-                                    <label class="lh-1 text-16 text-light-1" for="hotel_room_options_name">Dịch vụ</label>
+                                    <label class="lh-1 text-16 text-light-1" for="hotel_room_options_name">Mô tả</label>
                                 </div>
 
                             </td>

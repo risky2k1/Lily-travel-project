@@ -56,7 +56,7 @@ class Hotel extends Model implements HasMedia
 
     public function bookings(): MorphMany
     {
-        return $this->morphMany(Booking::class, 'modelType');
+        return $this->morphMany(Booking::class, 'modelType', 'type', 'type_id', 'id');
     }
 
     public function registerMediaConversions(Media $media = null): void

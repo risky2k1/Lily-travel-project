@@ -28,7 +28,11 @@
 
                                 <div class="cardImage ratio ratio-1:1">
                                     <div class="cardImage__content">
-                                        <img class="rounded-4 col-12" src="{{asset('storage/'.($hotel->image)[0])??asset('img/hotels/1.png')}}" alt="image">
+                                        @if($hotel->image)
+                                            <img class="rounded-4 col-12" src="{{asset('storage/'.($hotel->image)[0])}}" alt="image">
+                                        @else
+                                            <img class="rounded-4 col-12" src="{{asset('img/hotels/1.png')}}" alt="image">
+                                        @endif
                                     </div>
 
                                     <div class="cardImage__wishlist">
