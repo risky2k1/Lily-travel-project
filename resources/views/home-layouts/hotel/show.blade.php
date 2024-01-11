@@ -10,19 +10,6 @@
                             <h1 class="text-30 sm:text-25 fw-600">{{$hotel->name}}</h1>
                         </div>
 
-                        <div class="col-auto">
-
-                            <i class="icon-star text-10 text-yellow-1"></i>
-
-                            <i class="icon-star text-10 text-yellow-1"></i>
-
-                            <i class="icon-star text-10 text-yellow-1"></i>
-
-                            <i class="icon-star text-10 text-yellow-1"></i>
-
-                            <i class="icon-star text-10 text-yellow-1"></i>
-
-                        </div>
                     </div>
 
                     <div class="row x-gap-20 y-gap-20 items-center">
@@ -43,8 +30,8 @@
                     <div class="row x-gap-15 y-gap-15 items-center">
                         <div class="col-auto">
                             <div class="text-14">
-                                From
-                                <span class="text-22 text-dark-1 fw-500">US${{number_format($hotel->price)}}</span>
+                                Chỉ từ
+                                <span class="text-22 text-dark-1 fw-500">{{number_format($hotel->price)}} VNĐ</span>
                             </div>
                         </div>
 
@@ -85,28 +72,28 @@
                                 <div class="col-lg-3 col-6">
                                     <div class="text-center">
                                         <i class="icon-city text-24 text-blue-1"></i>
-                                        <div class="text-15 lh-1 mt-10">In London City Centre</div>
+                                        <div class="text-15 lh-1 mt-10">Gần các trung tâm lớn</div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-3 col-6">
                                     <div class="text-center">
                                         <i class="icon-airplane text-24 text-blue-1"></i>
-                                        <div class="text-15 lh-1 mt-10">Airport transfer</div>
+                                        <div class="text-15 lh-1 mt-10">Gần sân bay</div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-3 col-6">
                                     <div class="text-center">
                                         <i class="icon-bell-ring text-24 text-blue-1"></i>
-                                        <div class="text-15 lh-1 mt-10">Front desk [24-hour]</div>
+                                        <div class="text-15 lh-1 mt-10">Trực lễ tân 24/7</div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-3 col-6">
                                     <div class="text-center">
                                         <i class="icon-tv text-24 text-blue-1"></i>
-                                        <div class="text-15 lh-1 mt-10">Premium TV channels</div>
+                                        <div class="text-15 lh-1 mt-10">Dịch vụ TV cao cấp</div>
                                     </div>
                                 </div>
 
@@ -114,15 +101,15 @@
                         </div>
 
                         <div id="overview" class="col-12">
-                            <h3 class="text-22 fw-500 pt-40 border-top-light">Overview</h3>
+                            <h3 class="text-22 fw-500 pt-40 border-top-light">Nội dung</h3>
                             <p class="text-dark-1 text-15 mt-20">
                                 {{$hotel->content}}
                             </p>
-                            <a href="#" class="d-block text-14 text-blue-1 fw-500 underline mt-10">Show More</a>
+                            <a href="#" class="d-block text-14 text-blue-1 fw-500 underline mt-10">Hiển thị thêm</a>
                         </div>
 
                         <div class="col-12">
-                            <h3 class="text-22 fw-500 pt-40 border-top-light">Most Popular Facilities</h3>
+                            <h3 class="text-22 fw-500 pt-40 border-top-light">Các cơ sở vật chất của chúng tôi</h3>
                             <div class="row y-gap-10 pt-20">
                                 @foreach($hotel->facilities as $facility)
                                     <div class="col-md-5">
@@ -131,10 +118,7 @@
                                             <div class="text-15">{{$facility->name}}</div>
                                         </div>
                                     </div>
-
                                 @endforeach
-
-
                             </div>
                         </div>
 
@@ -186,7 +170,7 @@
         <div class="container">
             <div class="row pb-20">
                 <div class="col-auto">
-                    <h3 class="text-22 fw-500">Available Rooms</h3>
+                    <h3 class="text-22 fw-500">Các phòng hiện còn trống</h3>
                 </div>
             </div>
 
@@ -207,22 +191,17 @@
                                     <div class="">
                                         <div class="d-flex items-center">
                                             <i class="icon-no-smoke text-20 mr-10"></i>
-                                            <div class="text-15">Non-smoking rooms</div>
+                                            <div class="text-15">Không hút thuốc</div>
                                         </div>
 
                                         <div class="d-flex items-center">
                                             <i class="icon-wifi text-20 mr-10"></i>
-                                            <div class="text-15">Free WiFi</div>
-                                        </div>
-
-                                        <div class="d-flex items-center">
-                                            <i class="icon-parking text-20 mr-10"></i>
-                                            <div class="text-15">Parking</div>
+                                            <div class="text-15">Miễn phí wifi</div>
                                         </div>
 
                                         <div class="d-flex items-center">
                                             <i class="icon-kitchen text-20 mr-10"></i>
-                                            <div class="text-15">Kitchen</div>
+                                            <div class="text-15">Phòng bếp</div>
                                         </div>
 
                                     </div>

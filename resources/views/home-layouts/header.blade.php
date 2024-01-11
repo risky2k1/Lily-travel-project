@@ -20,28 +20,19 @@
                                 <ul class="menu__nav text-white -is-active">
 
                                     <li class="menu-item-has-children">
-                                        <a data-barba href="">
-                                            <span class="mr-10">Home</span>
-                                            <i class="icon icon-chevron-sm-down"></i>
-                                        </a>
-
-                                        <ul class="subnav">
-                                            <li class="subnav__backBtn js-nav-list-back">
-                                                <a href="#"><i class="icon icon-chevron-sm-down"></i> Home</a>
-                                            </li>
-
-                                        </ul>
-
-                                    </li>
-
-                                    <li>
-                                        <a href="destinations.html">
-                                            Destinations
+                                        <a data-barba href="{{route('home.page')}}">
+                                            <span class="mr-10">Trang chủ</span>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="{{route('chatify',1)}}">Contact</a>
+                                        <a href="{{route('home.hotel.index')}}">
+                                            Danh sách khách sạn
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('user',1)}}">Trò chuyện</a>
                                     </li>
                                 </ul>
                             </div>

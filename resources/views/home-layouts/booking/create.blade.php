@@ -13,15 +13,15 @@
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="text" required="" name="name">
-                                    <label class="lh-1 text-16 text-light-1">Họ tên</label>
+                                    <input type="text" required name="name" id="name" @if(auth()->check()) value="{{auth()->user()->name}}" @endif>
+                                    <label class="lh-1 text-16 text-light-1 required" for="name" >Họ tên</label>
                                 </div>
 
                             </div>
                             <div class="col-md-6">
 
                                 <div class="form-input ">
-                                    <input type="email" required="" name="email">
+                                    <input type="email" required="" name="email" @if(auth()->check()) value="{{auth()->user()->email}}" @endif>
                                     <label class="lh-1 text-16 text-light-1">Email</label>
                                 </div>
 
@@ -29,7 +29,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-input ">
-                                    <input type="text" required="" name="phone">
+                                    <input type="text" required="" name="phone" @if(auth()->check()) value="{{auth()->user()->phone}}" @endif>
                                     <label class="lh-1 text-16 text-light-1">Số điện thoại</label>
                                 </div>
 
@@ -37,7 +37,7 @@
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <input type="text" required="" name="address">
+                                    <input type="text" required="" name="address" @if(auth()->check()) value="{{auth()->user()->address}}" @endif>
                                     <label class="lh-1 text-16 text-light-1">Địa chỉ</label>
                                 </div>
 
@@ -46,7 +46,7 @@
                             <div class="col-12">
 
                                 <div class="form-input ">
-                                    <textarea required="" rows="6" name="request"></textarea>
+                                    <textarea rows="6" name="request"></textarea>
                                     <label class="lh-1 text-16 text-light-1">Yêu cầu đặc biệt</label>
                                 </div>
 

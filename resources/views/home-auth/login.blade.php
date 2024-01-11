@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/vendors.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 
-    <title>GoTrip</title>
+    <title>Lily Travel</title>
 </head>
 
 <body>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/vendors.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     @stack('css')
-    <title>GoTrip</title>
+    <title>Lily Travel</title>
 </head>
 
 <body data-barba="wrapper">
@@ -110,7 +110,7 @@
                     <div class="col-auto">
                         <div class="row y-gap-20 items-center">
                             <div class="col-auto">
-                                <div class="text-14 lh-14 mr-30">© 2022 GoTrip LLC All rights reserved.</div>
+                                <div class="text-14 lh-14 mr-30">© 2024 Lily Travel LLC All rights reserved.</div>
                             </div>
 
                             <div class="col-auto">

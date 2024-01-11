@@ -11,32 +11,32 @@
                         <div class="col-12">
 
                             <div class="form-input ">
-                                <input type="text" required="" name="name" value="{{$booking->user_name}}">
-                                <label class="lh-1 text-16 text-light-1">Họ tên</label>
+                                <input type="text" disabled name="name" value="{{$booking->user_name}}">
+                                <label class="lh-1 text-16 text-light-1 top-15">Họ tên</label>
                             </div>
 
                         </div>
                         <div class="col-md-6">
 
                             <div class="form-input ">
-                                <input type="email" required="" name="email" value="{{$booking->user_email}}">
-                                <label class="lh-1 text-16 text-light-1">Email</label>
+                                <input type="email" disabled name="email" value="{{$booking->user_email}}">
+                                <label class="lh-1 text-16 text-light-1 top-15">Email</label>
                             </div>
 
                         </div>
                         <div class="col-md-6">
 
                             <div class="form-input ">
-                                <input type="text" required="" name="phone" value="{{$booking->user_phone}}">
-                                <label class="lh-1 text-16 text-light-1">Số điện thoại</label>
+                                <input type="text" disabled name="phone" value="{{$booking->user_phone}}">
+                                <label class="lh-1 text-16 text-light-1 top-15">Số điện thoại</label>
                             </div>
 
                         </div>
                         <div class="col-12">
 
                             <div class="form-input ">
-                                <input type="text" required="" name="address" value="{{$booking->user_address}}">
-                                <label class="lh-1 text-16 text-light-1">Địa chỉ</label>
+                                <input type="text" disabled name="address" value="{{$booking->user_address}}">
+                                <label class="lh-1 text-16 text-light-1 top-15">Địa chỉ</label>
                             </div>
 
                         </div>
@@ -44,8 +44,8 @@
                         <div class="col-12">
 
                             <div class="form-input ">
-                                <textarea required="" rows="6" name="request">{{$booking->user_request}}</textarea>
-                                <label class="lh-1 text-16 text-light-1">Yêu cầu</label>
+                                <textarea disabled rows="6" name="request">{{$booking->user_request}}</textarea>
+                                <label class="lh-1 text-16 text-light-1 top-15">Yêu cầu</label>
                             </div>
 
                         </div>

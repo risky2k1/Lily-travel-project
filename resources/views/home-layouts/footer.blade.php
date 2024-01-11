@@ -80,7 +80,7 @@
                     <div class="row x-gap-30 y-gap-10">
                         <div class="col-auto">
                             <div class="d-flex items-center">
-                                © 2022 GoTrip LLC All rights reserved.
+                                © 2024 Lily Travel LLC All rights reserved.
                             </div>
                         </div>
 

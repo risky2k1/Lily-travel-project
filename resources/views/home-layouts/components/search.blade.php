@@ -7,8 +7,8 @@
         <div class="row justify-center">
             <div class="col-auto">
                 <div class="text-center">
-                    <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Find Next Place To Visit</h1>
-                    <p data-anim-child="slide-up delay-5" class="text-white mt-6 md:mt-10">Discover amzaing places at exclusive deals</p>
+                    <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30 text-white">Tìm nơi nghỉ chân lí tưởng</h1>
+                    <p data-anim-child="slide-up delay-5" class="text-white mt-6 md:mt-10">Khám phá thêm những địa điểm thú vị, cùng ưu đãi tuyệt vời</p>
                 </div>
 
                 <div data-anim-child="slide-up delay-6" class="tabs -underline mt-60 js-tabs">
@@ -46,11 +46,11 @@
 
                                                 <div class="text-15 text-light-1 ls-2 lh-16 d-flex">
                                                     <div>
-                                                        <input type="date" name="check_in" class="form-control-sm" placeholder="Check in">
+                                                        <input type="text" name="check_in" class="form-control-sm date-picker" placeholder="Check in">
                                                     </div>
                                                     -
                                                     <div>
-                                                        <input type="date" name="check_out" class="form-control-sm" placeholder="Check out">
+                                                        <input type="text" name="check_out" class="form-control-sm date-picker" placeholder="Check out">
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,3 +90,14 @@
         </div>
     </div>
 </section>
+@push('js')
+    <script>
+        $( function() {
+            $( ".date-picker" ).datepicker({
+                showButtonPanel: true,
+                changeMonth: true,
+                changeYear: true,
+            });
+        } );
+    </script>
+@endpush

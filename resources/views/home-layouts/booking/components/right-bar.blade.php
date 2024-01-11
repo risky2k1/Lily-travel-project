@@ -9,7 +9,7 @@
 <div class="col-xl-5 col-lg-4">
     <div class="ml-80 lg:ml-40 md:ml-0">
         <div class="px-30 py-30 border-light rounded-4">
-            <div class="text-20 fw-500 mb-30">Your booking details</div>
+            <div class="text-20 fw-500 mb-30">Chi tiết đơn đặt</div>
 
             <div class="row x-gap-15 y-gap-20">
                 <div class="col-auto">
@@ -17,19 +17,6 @@
                 </div>
 
                 <div class="col">
-                    <div class="d-flex x-gap-5 pb-10">
-
-                        <i class="icon-star text-yellow-1 text-10"></i>
-
-                        <i class="icon-star text-yellow-1 text-10"></i>
-
-                        <i class="icon-star text-yellow-1 text-10"></i>
-
-                        <i class="icon-star text-yellow-1 text-10"></i>
-
-                        <i class="icon-star text-yellow-1 text-10"></i>
-
-                    </div>
 
                     <div class="lh-17 fw-500">{{$item->name}}</div>
                     <div class="text-14 lh-15 mt-5">{{$item->address??'abc'}}</div>

@@ -8,8 +8,8 @@
                     </div>
 
                     <div class="col-auto">
-                        <h4 class="text-26 text-white fw-600">Your Travel Journey Starts Here</h4>
-                        <div class="text-white">Sign up and we'll send the best deals to you</div>
+                        <h4 class="text-26 text-white fw-600">Hành trình của bạn bắt đầu ngay tại đây</h4>
+                        <div class="text-white">Đăng kí để nhận ưu đãi ngay</div>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     </div>
 
                     <div>
-                        <button class="button -md h-60 bg-blue-1 text-white">Subscribe</button>
+                        <button class="button -md h-60 bg-blue-1 text-white">Đăng kí</button>
                     </div>
                 </div>
             </div>

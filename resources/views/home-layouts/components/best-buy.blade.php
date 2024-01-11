@@ -10,8 +10,8 @@
                     </div>
 
                     <div class="text-center mt-30">
-                        <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-                        <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4 class="text-18 fw-500">Giá cả tốt nhất</h4>
+                        <p class="text-15 mt-10">Chương trình khuyến mãi được áp dụng thường xuyên.</p>
                     </div>
                 </div>
 
@@ -25,8 +25,8 @@
                     </div>
 
                     <div class="text-center mt-30">
-                        <h4 class="text-18 fw-500">Easy & Quick Booking</h4>
-                        <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4 class="text-18 fw-500">Dễ dàng đặt phòng</h4>
+                        <p class="text-15 mt-10">Thao tác đặt phòng đơn giản, thuận tiện.</p>
                     </div>
                 </div>
 
@@ -40,8 +40,8 @@
                     </div>
 
                     <div class="text-center mt-30">
-                        <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-                        <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h4 class="text-18 fw-500">Hỗ trợ liên tục</h4>
+                        <p class="text-15 mt-10">Nhận được sự hỗ trợ trực tiếp từ quản trị viên.</p>
                     </div>
                 </div>
 

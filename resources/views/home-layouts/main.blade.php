@@ -18,7 +18,9 @@
     <script src="https://kit.fontawesome.com/372a333e86.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <title>GoTrip</title>
+    <title>Lily Travel</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -43,6 +45,9 @@
     $(document).ready(function () {
         $('.select2').select2({
             tags: true,
+        });
+        $('input[required]').each(function(){
+            $($(this).parent()).find('label').addClass('required') //depending on the structure of your fields
         });
     })
 </script>
