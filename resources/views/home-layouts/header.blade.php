@@ -55,7 +55,7 @@
                         </div>
                     @else
                         <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                            <button class="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20" disabled>Xin chào: {{auth()->user()->name}}</button>
+                            <a href="{{route('dashboard')}}" class="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20" disabled>Xin chào: {{auth()->user()->name}}</a>
                         </div>
                         @if(auth()->user()->hasRole("Super Admin"))
                             <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">

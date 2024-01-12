@@ -21,9 +21,9 @@
              data-pagination="js-hotels-pag" data-nav-next="js-hotels-next">
             <div class="swiper-wrapper">
                 @foreach($hotels as $hotel)
-                    <div class="swiper-slide">
+                    <div class="swiper-slide add-hotel-cart" data-hotel="{{$hotel->id}}">
 
-                        <a href="{{route('home.hotel.show',$hotel)}}" class="hotelsCard -type-1 ">
+                        <a href="{{--{{route('home.hotel.show',$hotel)}}--}}#" class="hotelsCard -type-1 ">
                             <div class="hotelsCard__image">
 
                                 <div class="cardImage ratio ratio-1:1">

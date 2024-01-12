@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.page');
+Route::post('/ajax/add-hotel-to-session', [HomeController::class, 'addHotelToSession'])->name('home.add-hotel-to-session');
 
 Route::prefix('hotel')->group(function () {
     Route::get('/', [HomeHotelController::class, 'index'])->name('home.hotel.index');
@@ -94,11 +95,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::prefix('ajax')->group(function () {
         Route::post('/change-hotel-state', [AjaxHotelController::class, 'updateHotelState'])->name('ajax-hotel.state-hotel-update');
     });
-});
-
-
-Route::get('/test', function () {
-    return view('home-auth.login');
 });
 
 require __DIR__.'/auth.php';

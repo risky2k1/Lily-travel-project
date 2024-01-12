@@ -49,6 +49,25 @@
         $('input[required]').each(function(){
             $($(this).parent()).find('label').addClass('required') //depending on the structure of your fields
         });
+
+        $('.add-hotel-cart').on('click',function (){
+            const hotelId = $(this).data('hotel');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{route('home.add-hotel-to-session')}}',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+                data: { hotel_id: hotelId },
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (error) {
+                    console.error('Error:', error);
+                }
+            });
+        })
     })
 </script>
 @stack('js')

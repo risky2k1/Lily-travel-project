@@ -20,7 +20,7 @@
                     <div class="row y-gap-30">
 
                         @foreach($hotels as $hotel)
-                            <div class="col-12">
+                            <div class="col-12 " >
                                 <div class="border-top-light pt-30">
                                     <div class="row x-gap-20 y-gap-20">
                                         <div class="col-md-auto">
@@ -100,7 +100,7 @@
                                                 <div class="text-22 lh-12 fw-600 mt-5">{{number_format($hotel->price)}} VNĐ</div>
 
 
-                                                <a href="{{route('home.hotel.show',$hotel)}}" class="button -md -dark-1 bg-blue-1 text-white mt-24">
+                                                <a href="{{route('home.hotel.show',$hotel)}}" class="button -md -dark-1 bg-blue-1 text-white mt-24 add-hotel-cart" data-hotel="{{$hotel->id}}">
                                                     Xem chi tiết
                                                     <div class="icon-arrow-top-right ml-15"></div>
                                                 </a>
