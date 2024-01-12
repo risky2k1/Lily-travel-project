@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home\Booking;
 
 use App\Http\Controllers\Controller;
+use App\Mail\HotelBooked;
 use App\Models\Booking;
 use App\Models\Hotel;
 use App\Models\HotelRoom;
@@ -11,6 +12,7 @@ use App\Models\States\BookingState\Processing;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -57,7 +59,7 @@ class BookingController extends Controller
         $booking->modelType()->associate($item);
 
         $booking->save();
-
+        Mail::to($request->input('email'))->send(new HotelBooked($booking));
         return redirect()->route('home.booking.index', $booking);
     }
 

@@ -20,9 +20,6 @@
                             </div>
                         </div>
 
-                        <div class="col-auto">
-                            <button data-x-click="mapFilter" class="text-blue-1 text-15 underline">Show on map</button>
-                        </div>
                     </div>
                 </div>
 
@@ -130,32 +127,21 @@
 
                         <div class="px-30 py-30 border-light rounded-4 mt-30">
                             <div class="flex-center ratio ratio-15:9 mb-15 js-lazy loaded" data-ll-status="loaded">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dYOUR_LATITUDE_LONGITUDE!2dYOUR_LONGITUDE!2dYOUR_LATITUDE!3dYOUR_ZOOM_LEVEL!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xYOUR_MAP_MARKER_LATITUDE_LONGITUDE!2sYour%20Marker%20Title!5e0!3m2!1sen!2sus!4vYOUR_MAP_EMBED_API_KEY"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0;"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                ></iframe>
-                                <button data-x-click="mapFilter" class="button py-15 px-24 -blue-1 bg-white text-dark-1 absolute">
-                                    <i class="icon-location text-22 mr-10"></i>
-                                    Show on map
-                                </button>
+                                {!! $hotel->map !!}
                             </div>
 
                             <div class="row y-gap-10">
                                 <div class="col-12">
                                     <div class="d-flex items-center">
                                         <i class="icon-award text-20 text-blue-1"></i>
-                                        <div class="text-14 fw-500 ml-10">Exceptional location - Inside city center</div>
+                                        <div class="text-14 fw-500 ml-10">Vị trí địa lí tuyệt vời</div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="d-flex items-center">
                                         <i class="icon-pedestrian text-20 text-blue-1"></i>
-                                        <div class="text-14 fw-500 ml-10">Exceptional for walking</div>
+                                        <div class="text-14 fw-500 ml-10">Dễ dàng đi bộ</div>
                                     </div>
                                 </div>
                             </div>
