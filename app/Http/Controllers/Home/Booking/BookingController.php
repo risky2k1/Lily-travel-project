@@ -60,6 +60,7 @@ class BookingController extends Controller
 
         $booking->save();
         Mail::to($request->input('email'))->send(new HotelBooked($booking));
+        toastr()->success('Đặt phòng thành công');
         return redirect()->route('home.booking.index', $booking);
     }
 
