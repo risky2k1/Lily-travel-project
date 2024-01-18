@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="mt-20">
-                            <h4 class="text-dark-1 text-18 fw-500">{{$location->name}}</h4>
+{{--                            <h4 class="text-dark-1 text-18 fw-500">{{$location->name}}</h4>--}}
 {{--                            <div class="text-light-1 text-15 lh-14 mt-5">{{$location->hotels->count()}}</div>--}}
                         </div>
                     </a>
