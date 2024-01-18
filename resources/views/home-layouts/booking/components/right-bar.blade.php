@@ -66,8 +66,37 @@
                             <div class="text-18 lh-13 fw-500">{{number_format($booking->total)}} VNĐ</div>
                         @endif
                     </div>
+
+                </div>
+
+            </div>
+            <div class="row py-20">
+                <div class="col-auto "></div>
+                <div class="col-auto">
+                    @if(request()->routeIs('home.booking.create'))
+                        <button type="submit" class="button h-60 px-24 -dark-1 bg-blue-1 text-white" onclick="document.getElementById('booking_form').submit()">
+                            Đặt ngay
+                            <div class="icon-arrow-top-right ml-15"></div>
+                        </button>
+                    @elseif(request()->routeIs('home.booking.index'))
+                        @if($booking->state == \App\Models\States\BookingState\Processing::$name)
+                            <form action="{{route('home.booking.payment',$booking)}}" method="post">
+                                @csrf
+                                <button type="submit" class="button h-60 px-24 -dark-1 bg-blue-1 text-white" name="redirect">
+                                    Thanh toán ngay qua ví VNpay
+                                    <div class="icon-arrow-top-right ml-15"></div>
+                                </button>
+                            </form>
+                        @else
+                            <button type="button" class="button h-60 px-24 -dark-1 bg-green-2 text-white">
+                                Đơn đặt đã được thanh toán thành công
+                                <div class="icon-arrow-top-right ml-15"></div>
+                            </button>
+                        @endif
+                    @endif
                 </div>
             </div>
+
         </div>
 
     </div>

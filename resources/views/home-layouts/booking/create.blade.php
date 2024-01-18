@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8">
-                    <form action="{{route('home.booking.store',['type'=>'hotel',$type->id])}}" method="post">
+                    <form action="{{route('home.booking.store',['type'=>'hotel',$type->id])}}" method="post" id="booking_form">
                         @csrf
                         <h2 class="text-22 fw-500 mt-40 md:mt-24">Để lại thông tin của bạn</h2>
 
@@ -63,10 +63,6 @@
 
                             <div class="col-auto">
 
-                                <button type="submit" class="button h-60 px-24 -dark-1 bg-blue-1 text-white">
-                                    Đặt ngay
-                                    <div class="icon-arrow-top-right ml-15"></div>
-                                </button>
 
                             </div>
                         </div>

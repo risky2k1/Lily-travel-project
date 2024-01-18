@@ -49,31 +49,30 @@
             <div class="col-auto">
                 <div class="d-flex items-center">
 
-                    @if(!auth()->check())
-                        <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                            <a href="{{route('login')}}" class="button px-30 fw-400 text-14 -white bg-white h-50 text-dark-1">Đăng nhập</a>
-                        </div>
-                    @else
-                        <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                            <a href="{{route('dashboard')}}" class="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20" disabled>Xin chào: {{auth()->user()->name}}</a>
-                        </div>
-                        @if(auth()->user()->hasRole("Super Admin"))
-                            <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                                <a href="{{route('admin.index')}}" class="button px-30 fw-400 text-14 border-white -outline-white h-50 text-white ml-20">Quản trị</a>
+                    <div class="d-flex x-gap-20 items-center pl-30 text-white" data-x="header-mobile-icons" data-x-toggle="text-white">
+                        @if(auth()->check() && auth()->user()->hasRole("Super Admin"))
+                            <div>
+                                <a href="{{route('admin.index')}}">
+                                    <img class="d-flex items-center text-inherit text-20" style="width: 20px; height: 20px;" src="{{asset('img/icons/admin-svg.svg')}}" alt="">
+                                </a>
                             </div>
                         @endif
-                        <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                            <form action="{{route('logout')}}" method="post" id="logout_form">
-                                @csrf
-                                <a href="#" class="button px-30 fw-400 text-14 -white bg-white h-50 text-dark-1" onclick="document.getElementById('logout_form').submit();">Đăng xuất</a>
-                            </form>
+                        <div>
+                            <a href="{{route('dashboard')}}" class="d-flex items-center icon-user text-inherit text-22"></a>
                         </div>
-                    @endif
-                    <div class="d-none xl:d-flex x-gap-20 items-center pl-30 text-white" data-x="header-mobile-icons" data-x-toggle="text-white">
-                        <div><a href="login.html" class="d-flex items-center icon-user text-inherit text-22"></a></div>
                         <div>
                             <button class="d-flex items-center icon-menu text-inherit text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button>
                         </div>
+                        @if(auth()->check())
+                            <div>
+                                <form action="{{route('logout')}}" method="post" id="logout_form">
+                                    @csrf
+                                    <a href="#" class="" onclick="document.getElementById('logout_form').submit();">
+                                        <img class="d-flex items-center text-inherit text-20" style="width: 20px; height: 20px;" src="{{asset('img/icons/logout-svgrepo-com.svg')}}" alt="">
+                                    </a>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

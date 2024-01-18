@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use App\Models\Hotel;
 use App\Models\Location;
+use App\Models\States\BookingState\Confirmed;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -15,7 +18,8 @@ class HomeController extends Controller
         $hotels = Hotel::where('is_feature', true)->get();
         $popularLocations = Location::where('is_feature', true)->get();
 
-        return view('home-layouts.main-content', compact('hotels', 'popularLocations'));
+        $locationsWithBookings = Location::take(3)->get();
+        return view('home-layouts.main-content', compact('hotels', 'popularLocations','locationsWithBookings'));
     }
 
     public function addHotelToSession(Request $request)

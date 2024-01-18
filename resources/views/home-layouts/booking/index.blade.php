@@ -57,20 +57,7 @@
                         </div>
 
                         <div class="col-auto">
-                            @if($booking->state == \App\Models\States\BookingState\Processing::$name)
-                                <form action="{{route('home.booking.payment',$booking)}}" method="post">
-                                    @csrf
-                                    <button type="submit" class="button h-60 px-24 -dark-1 bg-blue-1 text-white" name="redirect">
-                                        Thanh toán ngay qua ví VNpay
-                                        <div class="icon-arrow-top-right ml-15"></div>
-                                    </button>
-                                </form>
-                            @else
-                                <button type="button" class="button h-60 px-24 -dark-1 bg-green-2 text-white">
-                                    Đơn đặt đã được thanh toán thành công
-                                    <div class="icon-arrow-top-right ml-15"></div>
-                                </button>
-                            @endif
+
 
                         </div>
                     </div>
