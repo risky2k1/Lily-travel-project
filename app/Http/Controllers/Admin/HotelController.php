@@ -35,7 +35,7 @@ class HotelController extends Controller
             $query->where('state', $request->input('state'));
         }
 
-        $hotels = $query->paginate();
+        $hotels = $query->latest()->paginate();
 
         $hotelStates = Hotel::getStates()->first()->toArray();
         return view('admin.layouts.hotel.index', compact('hotels', 'hotelStates'));
@@ -114,6 +114,7 @@ class HotelController extends Controller
             'checkin' => ['date', 'nullable', 'required'],
             'checkout' => ['date', 'nullable', 'required'],
             'hotel_room_name' => ['string', 'required'],
+            'hotel_room_max_guests' => ['required', 'integer']
         ]);
 
         if (!empty($request->input('type'))) {
@@ -146,6 +147,7 @@ class HotelController extends Controller
             ], [
                 'name' => $request->input('hotel_room_name'),
                 'price' => $request->input('hotel_room_price'),
+                'max_guests' => $request->input('hotel_room_max_guests'),
             ]);
             HotelRoomOption::updateOrCreate([
                 'hotel_room_id' => $hotelRoom->id,

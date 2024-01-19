@@ -19,7 +19,8 @@ class HotelRoom extends Model
     protected $fillable = [
         'hotel_id',
         'name',
-        'price'
+        'price',
+        'max_guests',
     ];
 
     public function hotel(): BelongsTo

@@ -584,7 +584,7 @@
                                             <td style="overflow-wrap:break-word;word-break:break-word;padding:13px 10px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                 <div style="font-size: 14px; color: #ffffff; line-height: 100%; text-align: right; word-wrap: break-word;">
-                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: arial, helvetica, sans-serif; font-size: 16px; line-height: 16px;">Check in:</span>
+                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: arial, helvetica, sans-serif; font-size: 16px; line-height: 16px;">Thời gian:</span>
                                                     </p>
                                                 </div>
 
@@ -614,7 +614,11 @@
                                             <td style="overflow-wrap:break-word;word-break:break-word;padding:13px 10px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                 <div style="font-size: 14px; color: #ffffff; line-height: 100%; text-align: left; word-wrap: break-word;">
-                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: georgia, palatino; font-size: 16px; line-height: 16px;">{{\Carbon\Carbon::parse($booking->start_date)->format('d/m/Y')}}</span>
+                                                    <p style="font-size: 14px; line-height: 100%;">
+                                                        <span style="font-family: georgia, palatino; font-size: 16px; line-height: 16px;">{{\Carbon\Carbon::parse($booking->start_date)->format('d/m/Y')}}</span>
+                                                        -
+                                                        <span style="font-family: georgia, palatino; font-size: 16px; line-height: 16px;">{{\Carbon\Carbon::parse($booking->end_date)->format('d/m/Y')}}</span>
+
                                                     </p>
                                                 </div>
 
@@ -660,7 +664,7 @@
                                             <td style="overflow-wrap:break-word;word-break:break-word;padding:13px 10px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                 <div style="font-size: 14px; color: #ffffff; line-height: 100%; text-align: right; word-wrap: break-word;">
-                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: arial, helvetica, sans-serif; font-size: 16px; line-height: 16px;">Check out:</span>
+                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: arial, helvetica, sans-serif; font-size: 16px; line-height: 16px;">Mã đơn đặt:</span>
                                                     </p>
                                                 </div>
 
@@ -690,7 +694,7 @@
                                             <td style="overflow-wrap:break-word;word-break:break-word;padding:13px 10px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                 <div style="font-size: 14px; color: #ffffff; line-height: 100%; text-align: left; word-wrap: break-word;">
-                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: georgia, palatino; font-size: 16px; line-height: 16px;">{{\Carbon\Carbon::parse($booking->end_date)->format('d/m/Y')}}</span>
+                                                    <p style="font-size: 14px; line-height: 100%;"><span style="font-family: georgia, palatino; font-size: 16px; line-height: 16px;">{{$booking->code}}</span>
                                                     </p>
                                                 </div>
 

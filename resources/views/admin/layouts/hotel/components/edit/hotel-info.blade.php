@@ -58,12 +58,13 @@
                             <th>Tên phòng</th>
                             <th>Mô tả</th>
                             <th>Giá</th>
+                            <th>Số người tối đa</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         <tr>
-                            <td class="col-5">
+                            <td class="col-4">
 
                                 <div class="form-input ">
                                     <input name="hotel_room_name" id="hotel_room_name" type="text" value="{{$hotel->rooms->first()->name??''}}">
@@ -71,7 +72,7 @@
                                 </div>
 
                             </td>
-                            <td class="col-5">
+                            <td class="col-4">
 
                                 <div class="form-input ">
                                     <textarea name="hotel_room_options_name" id="hotel_room_options_name" cols="30" rows="10">{{$hotel->roomOptions->first()->name??''}}</textarea>
@@ -84,6 +85,14 @@
                                 <div class="form-input ">
                                     <input name="hotel_room_price" id="hotel_room_price" type="text" value="{{$hotel->rooms->first()->price??''}}">
                                     <label class="lh-1 text-16 text-light-1" for="hotel_room_price">Giá</label>
+                                </div>
+
+                            </td>
+                            <td class="col-2">
+
+                                <div class="form-input ">
+                                    <input name="hotel_room_max_guests" id="hotel_room_max_guests" type="number" value="{{$hotel->rooms->first()->max_guests??''}}">
+                                    <label class="lh-1 text-16 text-light-1" for="hotel_room_max_guests">Số người</label>
                                 </div>
 
                             </td>

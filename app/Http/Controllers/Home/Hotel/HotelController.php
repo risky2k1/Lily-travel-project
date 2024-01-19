@@ -15,6 +15,10 @@ class HotelController extends Controller
     {
         $query = Hotel::query();
 
+        if (!empty($request->input('name'))) {
+            $query->where('name', 'like', '%'.$request->input('name').'%');
+        }
+
         if (!empty($request->input('location'))) {
             $query->where('location_id', $request->input('location'));
         }
@@ -30,7 +34,7 @@ class HotelController extends Controller
         if (!empty($request->input('range'))) {
             $query->where('price', '<=', $request->input('range'));
         }
-        $hotels = $query->paginate()->withQueryString();
+        $hotels = $query->latest()->paginate()->withQueryString();
 
         $types = Type::all();
         $services = Service::all();

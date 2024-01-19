@@ -169,6 +169,7 @@
                                     <div>Loại phòng</div>
                                     <div>Dịch vụ</div>
                                     <div>Giá</div>
+                                    <div style="margin-left: 80px">Số người</div>
                                     <div></div>
                                 </div>
 
@@ -214,7 +215,9 @@
                                             <div>
                                                 <div class="text-18 lh-15 fw-500">{{number_format($hotel->rooms->first()->price)}} VNĐ</div>
                                             </div>
-
+                                            <div>
+                                                <div class="text-18 lh-15 fw-500">{{$hotel->rooms->first()->max_guests}}</div>
+                                            </div>
                                         </div>
 
 

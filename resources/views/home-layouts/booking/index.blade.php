@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8">
-                    <h2 class="text-22 fw-500 mt-40 md:mt-24">Thông tin đặt phòng</h2>
+                    <h2 class="text-22 fw-500 mt-40 md:mt-24">Thông tin đặt phòng ({{$booking->code}})</h2>
 
                     <div class="row x-gap-20 y-gap-20 pt-20">
                         <div class="col-12">

@@ -55,6 +55,7 @@ class BookingController extends Controller
         $booking->user_phone = $request->input('phone');
         $booking->user_address = $request->input('address');
         $booking->user_request = $request->input('request');
+        $booking->code = Carbon::now()->format('YmdHis');
 
         $booking->modelType()->associate($item);
 

@@ -28,6 +28,7 @@ class Booking extends Model
         'user_phone',
         'user_address',
         'user_request',
+        'code',
     ];
     protected $casts = [
         'state' => BookingState::class,
